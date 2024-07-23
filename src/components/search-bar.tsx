@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react'
 
+import { useDebounce } from '~/hooks/use-debounce'
 import { SearchButton } from '~/components/search-button'
 import { SearchInput } from '~/components/search-input'
 import { SearchSuggestion } from '~/components/search-suggestion'
@@ -7,6 +8,7 @@ import { SearchSuggestion } from '~/components/search-suggestion'
 export function SearchBar() {
   const inputRef = useRef<HTMLInputElement>(null)
   const [query, setQuery] = useState('')
+  const debouncedQuery = useDebounce(query, 300)
 
   const handleSuggestionClick = (suggestion: string) => {
     setQuery(suggestion)
@@ -23,7 +25,7 @@ export function SearchBar() {
         />
         {query && (
           <SearchSuggestion
-            query={query}
+            query={debouncedQuery}
             onClickSuggestion={handleSuggestionClick}
           />
         )}
