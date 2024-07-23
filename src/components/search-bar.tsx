@@ -1,14 +1,33 @@
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 
 import { SearchButton } from '~/components/search-button'
 import { SearchInput } from '~/components/search-input'
+import { SearchSuggestion } from '~/components/search-suggestion'
 
 export function SearchBar() {
   const inputRef = useRef<HTMLInputElement>(null)
+  const [query, setQuery] = useState('')
+
+  const handleInputChange = (suggestion: string) => {
+    setQuery(suggestion)
+    inputRef.current?.focus()
+  }
 
   return (
     <div className="flex gap-2">
-      <SearchInput ref={inputRef} />
+      <div className="relative flex">
+        <SearchInput
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          ref={inputRef}
+        />
+        {query && (
+          <SearchSuggestion
+            query={query}
+            onClickSuggestion={handleInputChange}
+          />
+        )}
+      </div>
       <SearchButton />
     </div>
   )
