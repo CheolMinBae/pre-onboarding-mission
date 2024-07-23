@@ -31,7 +31,7 @@ export function SearchSuggestion({
     )
 
   return (
-    <ul className="absolute top-14 left-0 max-h-40 w-full space-y-1 overflow-y-scroll rounded border bg-white p-2 shadow-black/10 shadow-lg transition *:p-2">
+    <ul className="card absolute top-14 left-0 max-h-40 w-full space-y-1 overflow-y-scroll *:p-2">
       {Object.entries(DUMMY).map(([type, data]) => (
         <Fragment key={type}>
           <div className="rounded bg-blue-200">{type}</div>
