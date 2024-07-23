@@ -19,4 +19,4 @@ export const dummy = [
   { description: 'Programmer', key: 'Programmer', type: 'JOB' },
   { description: 'Analyst', key: 'Analyst', type: 'JOB' },
   { description: 'Manager', key: 'Manager', type: 'JOB' },
-]
+] as const
