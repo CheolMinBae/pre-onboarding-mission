@@ -21,7 +21,7 @@ export function SearchSuggestion({
   // 구분자 보존을 위해 Regular Expression으로 split
   const highlightQuery = (text: string) =>
     text.split(new RegExp(`(${query})`, 'gi')).map((part, index) =>
-      part === query ? (
+      part.toLowerCase() === query.toLowerCase() ? (
         <strong key={index} className="font-semibold text-blue-500">
           {part}
         </strong>
