@@ -8,7 +8,7 @@ export function SearchBar() {
   const inputRef = useRef<HTMLInputElement>(null)
   const [query, setQuery] = useState('')
 
-  const handleInputChange = (suggestion: string) => {
+  const handleSuggestionClick = (suggestion: string) => {
     setQuery(suggestion)
     inputRef.current?.focus()
   }
@@ -24,7 +24,7 @@ export function SearchBar() {
         {query && (
           <SearchSuggestion
             query={query}
-            onClickSuggestion={handleInputChange}
+            onClickSuggestion={handleSuggestionClick}
           />
         )}
       </div>
