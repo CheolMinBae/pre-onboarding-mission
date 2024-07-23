@@ -14,6 +14,6 @@
   }
 
   .input {
-    @apply rounded-md border-2 border-gray-300 p-2 shadow-black/10 shadow-lg transition duration-200 hover:shadow-black/30 hover:shadow-md focus:shadow-black/30 focus:shadow-md focus:outline-none
+    @apply rounded-md border p-2 shadow-black/10 shadow-lg transition duration-200 hover:shadow-black/30 hover:shadow-md focus:shadow-black/30 focus:shadow-md focus:outline-none
   }
 }
