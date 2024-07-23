@@ -1,0 +1,77 @@
+body {
+  width: 100rem;
+}
+
+input {
+  width: 20%;
+  height: 2rem;
+  border-radius: 12px;
+  border-width: thin;
+  padding-left: 10px;
+}
+
+input:focus {
+  outline-color: blue;
+}
+
+button {
+  height: 2rem;
+}
+
+#result {
+  display: none;
+  width: 22%;
+  height: 10rem;
+  margin-top: 2px;
+  overflow-y: auto;
+  border-style: solid;
+  border-width: 1px;
+  border-color: blue;
+}
+
+/* 스크롤바 전체 */
+#result::-webkit-scrollbar {
+  width: 10px; /* 스크롤바 너비 */
+  height: 8px; /* 수평 스크롤바의 높이 */
+}
+
+/* 스크롤바의 트랙 (스크롤바가 지나가는 영역) */
+#result::-webkit-scrollbar-track {
+  background: #f1f1f1; /* 트랙 색상 */
+  border-radius: 10px; /* 모서리 둥글기 */
+}
+
+/* 스크롤바 핸들 (드래그할 수 있는 부분) */
+#result::-webkit-scrollbar-thumb {
+  background: #888; /* 핸들 색상 */
+  border-radius: 10px; /* 모서리 둥글기 */
+}
+
+/* 스크롤바 핸들 호버 시 색상 */
+#result::-webkit-scrollbar-thumb:hover {
+  background: #555; /* 호버 시 핸들 색상 */
+}
+
+/* 스크롤바 방향 화살표 제거 (사용자가 스크롤바를 드래그하면 화살표는 사라집니다) */
+#result::-webkit-scrollbar-button {
+  display: none; /* 방향 화살표 숨기기 */
+}
+
+#typeHeader {
+  background: blue;
+  color: white;
+  padding: 10px;
+  font: bold;
+}
+
+#resultparagraph {
+  margin: 0px;
+  padding: 10px;
+}
+#resultparagraph:hover {
+  background-color: #87cefa;
+}
+
+.highlight {
+  font-weight: bold;
+}
