@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useCallback, useRef, useState } from 'react'
 
 import { useDebounce } from '~/hooks/use-debounce'
 import { SearchButton } from '~/components/search-button'
@@ -10,10 +10,10 @@ export function SearchBar() {
   const [query, setQuery] = useState('')
   const debouncedQuery = useDebounce(query, 300)
 
-  const handleSuggestionClick = (suggestion: string) => {
+  const handleSuggestionClick = useCallback((suggestion: string) => {
     setQuery(suggestion)
     inputRef.current?.focus()
-  }
+  }, [])
 
   return (
     <div className="flex gap-2">
