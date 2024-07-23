@@ -47,7 +47,8 @@ function highlight(value) {
   for (const p of paragraphs) {
     const text = p.innerText;
     const regex = new RegExp(`(${value})`, "gi");
-    if (value && text.toLowerCase().includes(value.toLowerCase())) {
+
+    if (value) {
       const newText = text.replace(regex, '<span class="highlight">$1</span>');
       p.innerHTML = newText;
     } else {
