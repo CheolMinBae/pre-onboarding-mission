@@ -7,7 +7,7 @@ export const SearchInput = forwardRef<
   return (
     <input
       type="text"
-      className="input"
+      className="input w-full"
       placeholder="Search"
       ref={ref}
       {...props}
