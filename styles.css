@@ -1,0 +1,42 @@
+.serchInput {
+  width: 400px;
+  padding: 8px;
+  border-radius: 10px;
+}
+
+.dummy-ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  list-style: none;
+
+  max-height: 100px;
+  overflow-y: scroll;
+
+  background-color: rgb(243, 254, 255);
+
+  margin: 0;
+  padding: 8px;
+}
+
+li:hover {
+  background-color: aliceblue;
+  cursor: pointer;
+}
+
+.search-section {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.list-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 0.5rem;
+}
+
+.hidden {
+  display: none;
+}
