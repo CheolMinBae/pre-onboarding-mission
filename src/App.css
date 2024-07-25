@@ -1,0 +1,77 @@
+:root {
+	--base-size: 16rem;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+main {
+	position: relative;
+	display: flex;
+	align-items: flex-start;
+}
+
+section {
+	display: flex;
+	flex-direction: column;
+}
+
+input {
+	border-radius: 4px;
+	margin-right: 0.5rem;
+	font-size: 1.25rem;
+	width: var(--base-size);
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	width: var(--base-size);
+	height: calc(var(--base-size) / 2);
+	overflow-y: scroll;
+	border: 1px solid black;
+}
+
+li {
+	font-size: 1.25rem;
+	padding: 0.25rem;
+	cursor: pointer;
+}
+
+li:hover {
+	background-color: #757cad;
+	color: white;
+}
+
+li.selected {
+	color: white;
+	background-color: #3545ab;
+}
+
+button {
+	border: none;
+	background: #9999ff;
+	color: white;
+	font-size: 1rem;
+	padding: 0.25rem;
+	border-radius: 4px;
+}
+
+select {
+	position: absolute;
+	width: 250px;
+	top: 30px;
+	left: 0;
+}
+
+option {
+	font-size: 1rem;
+	padding: 0.25rem;
+}
+
+option:checked {
+	background-color: blue;
+	color: white;
+}
