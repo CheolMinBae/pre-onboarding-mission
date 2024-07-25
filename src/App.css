@@ -26,15 +26,21 @@ li {
   border-radius: 8px;
   font-size: 18px;
 }
+
 .input-container ul {
   height: 200px;
   overflow: auto;
   border: 1px solid #000;
   border-radius: 12px;
 }
+
 .input-container li {
   padding: 10px;
   border-bottom: 1px solid #000;
+}
+
+.highlight {
+  font-weight: 800;
 }
 button {
   background-color: #2ec23f;
