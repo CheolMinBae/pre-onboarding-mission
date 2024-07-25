@@ -31,7 +31,10 @@ function App() {
       {search && (
         <ul className="flex flex-col w-60 max-h-32 overflow-y-scroll overflow-x-hidden border-black border-[1px]">
           {dummy.map((data) => (
-            <li key={data.key} className="w-60 p-1">
+            <li
+              key={data.key}
+              className="w-60 p-1 hover:bg-blue-800 hover:text-white hover:cursor-pointer"
+            >
               {data.description}
             </li>
           ))}
