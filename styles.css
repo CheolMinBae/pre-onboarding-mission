@@ -5,11 +5,16 @@
 }
 
 .dummy-ul {
+  position: absolute;
+  top: 50px;
+  left: 10px;
+
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
   list-style: none;
 
+  width: 300px;
   max-height: 100px;
   overflow-y: scroll;
 
@@ -26,15 +31,34 @@ li:hover {
 
 .search-section {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 1rem;
 }
 
 .list-container {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   gap: 0.5rem;
+}
+
+.search-button {
+  border: none;
+  background-color: green;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+
+.search-button i {
+  color: white;
+  font-size: 1.5rem;
+  text-shadow: 1px 1px yellowgreen, 2px 2px yellowgreen, 3px 3px yellowgreen, 4px 4px yellowgreen, 5px 5px yellowgreen;
+}
+
+.search-button:hover {
+  cursor: pointer;
 }
 
 .hidden {
