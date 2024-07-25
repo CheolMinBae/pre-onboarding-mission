@@ -20,16 +20,25 @@ function App() {
           onChange={handleChange}
         />
         <ul className={value && "show"}>
-          {dummy.map((el) => (
-            <li
-              key={el.key}
-              className={
-                value && el.description.includes(value) ? "highlight" : ""
-              }
-            >
-              {el.description}
-            </li>
-          ))}
+          {dummy.map((el) => {
+            const { description } = el;
+            const regex = new RegExp(`(${value})`, "gi");
+            const parts = description.split(regex);
+
+            return (
+              <li key={el.key}>
+                {parts.map((part, index) =>
+                  part.toLowerCase() === value.toLowerCase() ? (
+                    <span className="highlight" key={index}>
+                      {part}
+                    </span>
+                  ) : (
+                    <span key={index}>{part}</span>
+                  )
+                )}
+              </li>
+            );
+          })}
         </ul>
       </div>
       <button>
