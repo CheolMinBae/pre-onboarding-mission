@@ -28,13 +28,15 @@ function App() {
       </div>
 
       {/* 검색 결과 영역 */}
-      <ul className="flex flex-col w-60 max-h-32 overflow-y-scroll overflow-x-hidden border-black border-[1px]">
-        {dummy.map((data) => (
-          <li key={data.key} className="w-60 p-1">
-            {data.description}
-          </li>
-        ))}
-      </ul>
+      {search && (
+        <ul className="flex flex-col w-60 max-h-32 overflow-y-scroll overflow-x-hidden border-black border-[1px]">
+          {dummy.map((data) => (
+            <li key={data.key} className="w-60 p-1">
+              {data.description}
+            </li>
+          ))}
+        </ul>
+      )}
     </section>
   );
 }
