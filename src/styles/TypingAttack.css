@@ -1,0 +1,53 @@
+.typing-attack {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+}
+
+.game-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.input-form {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 500px;
+}
+
+.word-input {
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+    font-family: 'Press Start 2P', cursive;
+    background-color: rgba(255, 255, 255, 0.5);
+    color: black;
+    border: none;
+    border-radius: 5px;
+}
+
+.countdown {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    color: white;
+    text-align: center;
+}
+
+.score {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 18px;
+    color: white;
+}
