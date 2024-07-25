@@ -8,6 +8,9 @@ function App() {
   const handleChangeSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
   };
+  const handleClickResult = (e: React.MouseEvent<HTMLLIElement>) => {
+    setSearch(e.currentTarget.id);
+  };
   return (
     <section className="m-4">
       {/* 검색창 영역 */}
@@ -33,6 +36,8 @@ function App() {
           {dummy.map((data) => (
             <li
               key={data.key}
+              id={data.description}
+              onClick={handleClickResult}
               className="w-60 p-1 hover:bg-blue-800 hover:text-white hover:cursor-pointer"
             >
               {data.description}
