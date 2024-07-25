@@ -19,7 +19,7 @@ function App() {
           value={value}
           onChange={handleChange}
         />
-        <ul>
+        <ul className={value && "show"}>
           {dummy.map((el) => (
             <li
               key={el.key}

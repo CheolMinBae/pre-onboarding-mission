@@ -28,10 +28,15 @@ li {
 }
 
 .input-container ul {
+  display: none;
   height: 200px;
   overflow: auto;
   border: 1px solid #000;
   border-radius: 12px;
+}
+
+.input-container ul.show {
+  display: block;
 }
 
 .input-container li {
@@ -42,6 +47,7 @@ li {
 .highlight {
   font-weight: 800;
 }
+
 button {
   background-color: #2ec23f;
   width: 50px;
