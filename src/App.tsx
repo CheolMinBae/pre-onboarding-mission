@@ -1,18 +1,18 @@
 import { useState } from 'react';
 import './App.css';
 import { FaSearch } from 'react-icons/fa';
-import { dummy } from './data/data.ts';
+import { dummy as result } from './data/data.ts';
 import useDebounce from './hooks/useDebounce.ts';
 
 function App() {
-  const [search, setSearch] = useState<string>('');
-  const debouncedSearchText = useDebounce(search, 500);
+  const [searchText, setSearchText] = useState<string>('');
+  const debouncedSearchText = useDebounce(searchText, 500);
 
   const handleChangeSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearch(e.target.value);
+    setSearchText(e.target.value);
   };
   const handleClickResult = (e: React.MouseEvent<HTMLLIElement>) => {
-    setSearch(e.currentTarget.id);
+    setSearchText(e.currentTarget.id);
   };
 
   return (
@@ -21,7 +21,7 @@ function App() {
       <div className="flex gap-2">
         <input
           type="text"
-          value={search}
+          value={searchText}
           onChange={handleChangeSearch}
           className="w-60 h-8 p-1 border-black border-[1px] rounded-lg"
         />
@@ -35,9 +35,9 @@ function App() {
       </div>
 
       {/* 검색 결과 영역 */}
-      {search && (
+      {searchText && (
         <ul className="flex flex-col w-60 max-h-32 overflow-y-scroll overflow-x-hidden border-black border-[1px]">
-          {dummy.map((data) => (
+          {result.map((data) => (
             <li
               key={data.key}
               id={data.description}
