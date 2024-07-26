@@ -2,15 +2,19 @@ import { useState } from 'react';
 import './App.css';
 import { FaSearch } from 'react-icons/fa';
 import { dummy } from './data/data.ts';
+import useDebounce from './hooks/useDebounce.ts';
 
 function App() {
   const [search, setSearch] = useState<string>('');
+  const debouncedSearchText = useDebounce(search, 500);
+
   const handleChangeSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
   };
   const handleClickResult = (e: React.MouseEvent<HTMLLIElement>) => {
     setSearch(e.currentTarget.id);
   };
+
   return (
     <section className="m-4">
       {/* 검색창 영역 */}
