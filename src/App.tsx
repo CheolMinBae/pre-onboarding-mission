@@ -15,6 +15,11 @@ function App() {
     setSearchText(e.currentTarget.id);
   };
 
+  const searchedResult = (text: string) => {
+    const arr = text.split(debouncedSearchText);
+    return arr;
+  };
+
   return (
     <section className="m-4">
       {/* 검색창 영역 */}
@@ -37,16 +42,27 @@ function App() {
       {/* 검색 결과 영역 */}
       {searchText && (
         <ul className="flex flex-col w-60 max-h-32 overflow-y-scroll overflow-x-hidden border-black border-[1px]">
-          {result.map((data) => (
-            <li
-              key={data.key}
-              id={data.description}
-              onClick={handleClickResult}
-              className="w-60 p-1 hover:bg-blue-800 hover:text-white hover:cursor-pointer"
-            >
-              {data.description}
-            </li>
-          ))}
+          {result.map((data) => {
+            const result = searchedResult(data.description);
+
+            return (
+              <li
+                key={data.key}
+                id={data.description}
+                onClick={handleClickResult}
+                className="w-60 p-1 hover:bg-blue-800 hover:text-white hover:cursor-pointer"
+              >
+                {result?.map((item, index) => (
+                  <span key={index}>
+                    <span>{item}</span>
+                    {index < result.length - 1 && (
+                      <span className="font-bold">{debouncedSearchText}</span>
+                    )}
+                  </span>
+                ))}
+              </li>
+            );
+          })}
         </ul>
       )}
     </section>
