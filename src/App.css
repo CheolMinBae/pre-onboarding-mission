@@ -1,0 +1,56 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.search {
+  position: relative;
+  max-width: 300px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  height: 40px;
+  outline-color: blue;
+}
+
+.search-img {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+}
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: calc(100%-40px);
+  border: 1px solid #ccc;
+  background-color: white;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+.type-header {
+  background-color: blue;
+  color: white;
+  padding: 8px;
+  font-weight: bold;
+}
+
+.dropdown-item {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  background-color: rgba(0, 0, 255, 0.2);
+}
