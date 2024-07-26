@@ -1,0 +1,18 @@
+.container {
+    position: relative;
+}
+
+.input {
+    padding: 0 6px;
+    min-height: 30px;
+    cursor: text;
+
+    outline: 1px solid #000;
+    border-radius: 3px;
+
+    font-size: 16px;
+}
+
+.input:focus {
+    outline: 2px solid #000;
+}
