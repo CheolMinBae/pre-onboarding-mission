@@ -15,9 +15,33 @@ function App() {
     setSearchText(e.currentTarget.id);
   };
 
-  const searchedResult = (text: string) => {
-    const arr = text.split(debouncedSearchText);
-    return arr;
+  const highlightResults = (text: string): string[] => {
+    // debouncedSearchText가 빈 문자열이라면 그대로 text return
+    if (!debouncedSearchText) return [text];
+
+    // text, debouncedSearchText를 소문자로 함
+    const lowerText = text.toLowerCase();
+    const lowerSearchText = debouncedSearchText.toLowerCase();
+
+    // text안에 searchText가 위치한 인덱스를 indexOf로 찾기
+    let startIdx = 0;
+    const parts: string[] = [];
+    while (startIdx < lowerText.length) {
+      let matchIdx = lowerText.indexOf(lowerSearchText, startIdx);
+      if (matchIdx === -1) break;
+
+      parts.push(text.slice(startIdx, matchIdx));
+      parts.push(text.slice(matchIdx, matchIdx + lowerSearchText.length));
+
+      startIdx = matchIdx + lowerSearchText.length;
+    }
+
+    // 마지막 부분 넣어주기
+    if (startIdx < text.length) {
+      parts.push(text.slice(startIdx));
+    }
+
+    return parts;
   };
 
   return (
@@ -43,8 +67,8 @@ function App() {
       {searchText && (
         <ul className="flex flex-col w-60 max-h-32 overflow-y-scroll overflow-x-hidden border-black border-[1px]">
           {result.map((data) => {
-            const result = searchedResult(data.description);
-
+            const results = highlightResults(data.description);
+            console.log(results);
             return (
               <li
                 key={data.key}
@@ -52,14 +76,15 @@ function App() {
                 onClick={handleClickResult}
                 className="w-60 p-1 hover:bg-blue-800 hover:text-white hover:cursor-pointer"
               >
-                {result?.map((item, index) => (
-                  <span key={index}>
-                    <span>{item}</span>
-                    {index < result.length - 1 && (
-                      <span className="font-bold">{debouncedSearchText}</span>
-                    )}
-                  </span>
-                ))}
+                {results?.map((item, index) =>
+                  item.toLowerCase() === debouncedSearchText.toLowerCase() ? (
+                    <span key={index} className="font-bold">
+                      {item}
+                    </span>
+                  ) : (
+                    item
+                  )
+                )}
               </li>
             );
           })}
