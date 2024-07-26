@@ -1,0 +1,30 @@
+.search-bar {
+    width: 200px;
+    margin: 10px;
+}
+
+.search-input {
+    width: 100%;
+}
+
+.search-results {
+    width: 100%;
+}
+
+.group {
+    background-color: navy;
+    color: white;
+    font-weight: 500;
+    padding: 0 4px 0 4px;
+}
+
+.group-item {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.group-item:hover {
+    background-color: rgb(127, 127, 224);
+    color: white;
+}
