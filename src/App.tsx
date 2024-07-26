@@ -68,7 +68,6 @@ function App() {
         <ul className="flex flex-col w-60 max-h-32 overflow-y-scroll overflow-x-hidden border-black border-[1px]">
           {result.map((data) => {
             const results = highlightResults(data.description);
-            console.log(results);
             return (
               <li
                 key={data.key}
