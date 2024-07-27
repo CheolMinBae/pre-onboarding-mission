@@ -10,47 +10,67 @@ const SearchBar = () => {
     const groupedData = groupByType(dummy);
 
     const handleInputChange = (event) => {
-        const value = event.target.value;
-        setsearchTerm(value);
+        setsearchTerm(event.target.value);
     };
 
-    const splitIntoChars = (str) => {
-        const chars = str.split('');
+    const splitIntoChars = (str, term) => {
+        if (!term) return str;
+        const regex = new RegExp(
+            `(${term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`,
+            'gi'
+        );
+        const chars = str.split(regex);
 
         return (
-            <div>
-                {chars.map((char, index) => (
-                    <span key={index}>{char}</span>
-                ))}
-            </div>
+            <span>
+                {chars.map((char, index) =>
+                    regex.test(char) ? (
+                        <span key={index} className="point-char">
+                            {char}
+                        </span>
+                    ) : (
+                        <span key={index}>{char}</span>
+                    )
+                )}
+            </span>
         );
     };
 
     return (
         <div className="search-bar">
-            <input
-                type="text"
-                value={searchTerm}
-                onChange={handleInputChange}
-                className="search-input"
-            />
-            {searchTerm && (
-                <div className="search-results">
-                    {Object.entries(groupedData).map(([group, value]) => (
-                        <div>
-                            <div className="group">{group}</div>
-                            <ul className="group-list">
-                                {value.map((item) => (
-                                    <li key={item.key} className="group-item">
-                                        {splitIntoChars(item.description)}
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                    ))}
-                </div>
-            )}
-            <button type="button">검색</button>
+            <div className="search-list">
+                <input
+                    type="text"
+                    value={searchTerm}
+                    onChange={handleInputChange}
+                    className="search-input"
+                />
+                {searchTerm && (
+                    <div className="search-results">
+                        {Object.entries(groupedData).map(([group, value]) => (
+                            <div>
+                                <div className="group">{group}</div>
+                                <ul className="group-list">
+                                    {value.map((item) => (
+                                        <li
+                                            key={item.key}
+                                            className="group-item"
+                                        >
+                                            {splitIntoChars(
+                                                item.description,
+                                                searchTerm
+                                            )}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        ))}
+                    </div>
+                )}
+            </div>
+            <div className="search-button">
+                <button type="button">🔍</button>
+            </div>
         </div>
     );
 };

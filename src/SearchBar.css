@@ -1,14 +1,31 @@
 .search-bar {
     width: 200px;
     margin: 10px;
+    display: flex;
+}
+
+.search-list {
+    width: 90%;
+}
+
+.search-button {
+    width: 10%;
 }
 
 .search-input {
     width: 100%;
+    height: 25px;
+    border: 1px solid navy;
+    border-radius: 5px;
+    box-sizing: border-box;
 }
 
 .search-results {
     width: 100%;
+    height: 125px;
+    overflow-y: scroll;
+    font-size: 13px;
+    border: 1px solid navy;
 }
 
 .group {
@@ -16,15 +33,31 @@
     color: white;
     font-weight: 500;
     padding: 0 4px 0 4px;
+    line-height: 25px;
 }
 
-.group-item {
+.group-list {
     list-style-type: none;
     margin: 0;
     padding: 0;
 }
 
+.group-item {
+    list-style-type: none;
+    padding: 0 4px 0 4px;
+    margin: 0;
+    line-height: 25px;
+}
+
 .group-item:hover {
     background-color: rgb(127, 127, 224);
     color: white;
+}
+
+.point-char {
+    font-weight: bold;
+}
+
+.search-button {
+    border-radius: 50px;
 }
