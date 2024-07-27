@@ -38,7 +38,7 @@ const inputEvent = (e) => {
 
       if (matchIndex !== -1) {
         liElement.innerHTML = `${description.slice(
-          0,
+          0,  
           matchIndex
         )}<b>${description.slice(
           matchIndex,
@@ -52,4 +52,14 @@ const inputEvent = (e) => {
   }
 };
 
-input.addEventListener("keyup", inputEvent);
+// 디바운스 구현
+function debounce(callback, delay = 300) {
+  let timer = null;
+
+  return (event) => {
+    if (timer) clearTimeout(timer);
+    timer = setTimeout(() => callback(event), delay);
+  };
+}
+
+input.addEventListener("keyup", debounce(inputEvent));
