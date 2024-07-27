@@ -1,0 +1,40 @@
+main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.input {
+  width: 200px;
+  height: 28px;
+  border-radius: 8px;
+  border: 1px solid gray;
+}
+
+.recommend {
+  height: 200px;
+  width: 200px;
+  overflow: auto;
+  border: 1px solid cornflowerblue;
+
+  .listLabel {
+    background-color: royalblue;
+    color: white;
+  }
+
+  ul {
+    padding: 0;
+    margin: 0;
+  }
+  li {
+    list-style: none;
+    padding: 4px;
+    cursor: pointer;
+  }
+  li:hover {
+    background-color: #747bff;
+  }
+}
