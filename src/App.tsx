@@ -11,7 +11,7 @@ function App() {
     <Wrapper>
       <InputBox setInput={setInput} />
       <SearchBtn />
-      <Popup inputLength={input.length} />
+      <Popup inputLength={input.length} searchText={input} />
     </Wrapper>
   );
 }
