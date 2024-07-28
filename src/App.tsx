@@ -1,10 +1,12 @@
-import InputBox from "./components/InputBox";
 import styled from "styled-components";
+import InputBox from "./components/InputBox";
+import SearchBtn from "./components/SearchBtn";
 
 function App() {
   return (
     <Wrapper>
       <InputBox />
+      <SearchBtn />
     </Wrapper>
   );
 }
