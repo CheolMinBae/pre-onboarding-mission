@@ -1,7 +1,15 @@
 import styled from "styled-components";
 
-function InputBox() {
-  return <StyledInput></StyledInput>;
+interface InputBoxProps {
+  setInput: (input: string) => void;
+}
+
+function InputBox({ setInput }: InputBoxProps) {
+  const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInput(e.target.value);
+  };
+
+  return <StyledInput onChange={handleInput}></StyledInput>;
 }
 
 const StyledInput = styled.input`
