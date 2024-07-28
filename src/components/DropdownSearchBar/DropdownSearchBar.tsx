@@ -14,7 +14,6 @@ type Props = {
 
 const DropdownSearchBar: React.FC<Props> = ({ onSelectItem, data }) => {
     const [searchValue, setSearchValue] = useState<string>("");
-    const [isFoucsed, setIsFocused] = useState<boolean>(false);
 
     const handleValueChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setSearchValue(e.target.value)
@@ -28,13 +27,9 @@ const DropdownSearchBar: React.FC<Props> = ({ onSelectItem, data }) => {
 
                 value={searchValue}
                 onChange={handleValueChange}
-
-                onFocus={() => setIsFocused(true)}
-                onBlur={() => setIsFocused(false)}
-
             />
             {
-                isFoucsed &&
+                searchValue &&
                 <SearchBarDropdown
                     searchValue={searchValue}
                     data={data}

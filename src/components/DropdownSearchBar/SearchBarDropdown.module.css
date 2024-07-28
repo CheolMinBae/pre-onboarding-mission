@@ -3,9 +3,57 @@
 
     max-height: 200px;
     overflow: scroll;
+    overflow-x: auto;
 
     left: 0;
     right: 0;
 
     outline: 2px solid #000;
+}
+
+.container::-webkit-scrollbar {
+    width: 13px;
+
+}
+
+.container::-webkit-scrollbar-track {
+    background-color: #f8f8f8;
+    border-left: 2px solid #000;
+}
+
+.container::-webkit-scrollbar-thumb {
+    background-color: #000;
+
+    border-left: 4px solid transparent;
+    border-right: 2px solid transparent;
+    background-clip: padding-box;
+
+    border-radius: 999px;
+}
+
+
+.sectionTitle {
+    padding: 3px 4px;
+    background-color: #000;
+
+    color: #fff;
+    font-weight: 500;
+
+    cursor: default;
+    user-select: none;
+}
+
+.sectionItem {
+    padding: 3px 4px;
+
+    cursor: pointer;
+    user-select: none;
+}
+
+.sectionItem:hover {
+    background-color: #e2e2e2;
+}
+
+.highlightedText {
+    font-weight: 600;
 }
