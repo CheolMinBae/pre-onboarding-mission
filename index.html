@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pre-onboarding-mission</title>
+    <style>
+      input:focus {
+        border-color: steelblue;
+        outline: none;
+      }
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+      li {
+        &:hover {
+          background-color: lightgray;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div style="display: flex; align-items: center">
+        <div style="position: relative">
+          <input
+            type="text"
+            id="search"
+            style="
+              width: 200px;
+              height: 20px;
+              border-width: 1px;
+              border-radius: 8px;
+            "
+          />
+          <ul
+            id="autocomplete-list"
+            style="
+              position: absolute;
+              top: 24px;
+              width: 205px;
+              height: 105px;
+              border: 1px solid #000;
+              overflow-y: auto;
+              visibility: hidden;
+              margin: 0;
+            "
+          ></ul>
+        </div>
+
+        <button
+          id="search-button"
+          style="
+            display: flex;
+            padding: 0;
+            border-radius: 50%;
+            margin-left: 4px;
+          "
+        >
+          <img
+            src="https://www.shutterstock.com/image-vector/search-icon-vector-magnifying-glass-260nw-2421386915.jpg"
+            width="25"
+            height="25"
+            style="border-radius: 50%"
+          />
+        </button>
+      </div>
+    </main>
+
+    <script type="module" src="autocomplete.js"></script>
+  </body>
+</html>
