@@ -10,6 +10,7 @@ type Props = {
     onSelect: (data: DataType) => void;
 };
 
+
 const SearchBarDropdown: React.FC<Props> = ({ searchValue, data, onSelect }) => {
 
     /*
@@ -20,8 +21,30 @@ const SearchBarDropdown: React.FC<Props> = ({ searchValue, data, onSelect }) => 
         }
     */
 
+    console.log(Object.entries(data))
+
     return (
         <div className={styles.container}>
+            {
+                Object.entries(data).map(([type, data]) => {
+                    return (
+                        <div onClick={() => console.log(type)}>
+                            {type}
+                            <div>
+                                {
+                                    data.map(data => {
+                                        const { description } = data
+
+                                        return (
+                                            <div onClick={() => console.log(data)}>{description}</div>
+                                        )
+                                    })
+                                }
+                            </div>
+                        </div>
+                    )
+                })
+            }
         </div>
     );
 };

@@ -1,18 +1,26 @@
-import { useState } from 'react';
+import { useMemo } from 'react';
 
 import './App.css'
 
 import Button from './components/Button/Button'
 import DropdownSearchBar from './components/DropdownSearchBar/DropdownSearchBar'
+import { convertData } from './utils/data';
+import { dummy } from './datas/data';
+import { ConvertedDataType } from './types/data';
 
 function App() {
 
-  const [searchValue, setSearchValue] = useState<string>("");
+  const convertedData = useMemo(() => {
+    return convertData(dummy)
+  }, []);
 
   return (
     <div className='container'>
       <div className="wrapper">
-        <DropdownSearchBar value={searchValue} onChange={setSearchValue} />
+        <DropdownSearchBar
+          data={convertedData as ConvertedDataType}
+          onSelectItem={(e) => console.log(e)}
+        />
         <Button>{"검색"}</Button>
       </div>
     </div>

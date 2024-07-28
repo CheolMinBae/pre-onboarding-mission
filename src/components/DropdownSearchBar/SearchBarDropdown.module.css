@@ -1,7 +1,11 @@
 .container {
     position: absolute;
 
-    background-color: #000;
+    max-height: 200px;
+    overflow: scroll;
+
     left: 0;
     right: 0;
+
+    outline: 2px solid #000;
 }

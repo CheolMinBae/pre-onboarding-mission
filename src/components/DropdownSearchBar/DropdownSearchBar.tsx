@@ -4,22 +4,20 @@ import styles from "./DropdownSearchBar.module.css";
 
 import SearchBarDropdown from "./SearchBarDropdown";
 
-import { ConvertedDataType } from "../../types/data";
-
-import { dummy } from "../../datas/data";
+import { ConvertedDataType, DataType } from "../../types/data";
 
 type Props = {
-    value: string;
-    onChange: (value: string) => void;
+    onSelectItem: (value: DataType) => void;
 
     data: ConvertedDataType;
 };
 
-const DropdownSearchBar: React.FC<Props> = ({ value, onChange }) => {
+const DropdownSearchBar: React.FC<Props> = ({ onSelectItem, data }) => {
+    const [searchValue, setSearchValue] = useState<string>("");
     const [isFoucsed, setIsFocused] = useState<boolean>(false);
 
     const handleValueChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        onChange(e.target.value)
+        setSearchValue(e.target.value)
     };
 
     return (
@@ -27,8 +25,10 @@ const DropdownSearchBar: React.FC<Props> = ({ value, onChange }) => {
             <input
                 className={styles.input}
                 type="text"
-                value={value}
+
+                value={searchValue}
                 onChange={handleValueChange}
+
                 onFocus={() => setIsFocused(true)}
                 onBlur={() => setIsFocused(false)}
 
@@ -36,10 +36,10 @@ const DropdownSearchBar: React.FC<Props> = ({ value, onChange }) => {
             {
                 isFoucsed &&
                 <SearchBarDropdown
-                    searchValue={value}
-                    data={dummy}
+                    searchValue={searchValue}
+                    data={data}
 
-                    onSelect={(e) => console.log(e)}
+                    onSelect={onSelectItem}
                 />
             }
         </div>

@@ -5,5 +5,5 @@ export type DataType = {
 }
 
 export type ConvertedDataType = {
-    [key: string]: DataType
+    [key: string]: DataType[]
 }
