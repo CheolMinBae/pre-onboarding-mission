@@ -1,0 +1,15 @@
+.box {
+    padding: 8px 16px;
+
+    border-radius: 5px;
+    background-color: #000;
+
+    color: #fff;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.box:hover {
+    opacity: 0.8;
+}
