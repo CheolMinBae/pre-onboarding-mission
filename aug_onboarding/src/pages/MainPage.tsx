@@ -7,7 +7,7 @@ const MainPage = () => {
     return (
         <div>
             <SearchBar value={value} setValue={setValue}/>
-            {value && <SearchList/>}
+            {value && <SearchList value={value}/>}
         </div>
     );
 };
