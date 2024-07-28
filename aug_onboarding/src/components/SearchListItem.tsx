@@ -29,7 +29,18 @@ const SearchListItem = ({item, value}: ISearchListItem) => {
 export default SearchListItem;
 
 const Item  = styled.div`
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    box-sizing: border-box;
+    height: 36px;
+    white-space: pre-wrap;
     span {
         font-weight: 600;
     }
+    &:hover {
+        background-color: #f2f2f2;
+        cursor: pointer;
+    }
+
 `
