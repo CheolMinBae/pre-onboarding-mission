@@ -5,6 +5,7 @@ import styles from "./DropdownSearchBar.module.css";
 import SearchBarDropdown from "./SearchBarDropdown";
 
 import { ConvertedDataType, DataType } from "../../types/data";
+import useThrottledValue from "../../hooks/useThrottledValue";
 
 type Props = {
     onSelectItem: (value: DataType) => void;
@@ -14,6 +15,7 @@ type Props = {
 
 const DropdownSearchBar: React.FC<Props> = ({ onSelectItem, data }) => {
     const [searchValue, setSearchValue] = useState<string>("");
+    const throttledValue = useThrottledValue(searchValue, 300);
 
     const handleValueChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setSearchValue(e.target.value)
@@ -31,7 +33,7 @@ const DropdownSearchBar: React.FC<Props> = ({ onSelectItem, data }) => {
             {
                 searchValue &&
                 <SearchBarDropdown
-                    searchValue={searchValue}
+                    searchValue={throttledValue}
                     data={data}
 
                     onSelect={onSelectItem}
