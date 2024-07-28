@@ -8,12 +8,10 @@ export interface ISearchListItem {
     item: IDummy
 }
 
-const SearchListItem = (props: ISearchListItem) => {
-    const {description, key, type} = props
+const SearchListItem = ({item}: ISearchListItem) => {
     return (
         <div>
-            <div>{key}</div>
-            <div>{description}</div>
+            <div>{item.description}</div>
         </div>
     );
 };

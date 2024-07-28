@@ -3,10 +3,10 @@ import SearchListItem, {IDummy} from "@src/components/SearchListItem.tsx";
 import {useState} from "react";
 
 const SearchList = () => {
-    const [data,] = useState(dummy)
+    const [data,] = useState<IDummy[]>(dummy)
     return (
         <div>
-            {data.map((v:IDummy) => <SearchListItem key={v.key} item={v}/>)}
+            {data && data.map((v) => (<SearchListItem key={v.key} item={v}/>))}
         </div>
     )
 };
