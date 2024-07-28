@@ -12,7 +12,7 @@ type Props = {
 
 const SearchBarDropdown: React.FC<Props> = React.memo(({ searchValue, data, onSelect }) => {
     return (
-        <div className={styles.container}>
+        <ul className={styles.container}>
             {
                 Object.entries(data).map(([type, datas]) => {
                     return (
@@ -37,7 +37,7 @@ const SearchBarDropdown: React.FC<Props> = React.memo(({ searchValue, data, onSe
                     )
                 })
             }
-        </div>
+        </ul>
     );
 });
 
@@ -62,7 +62,7 @@ const DropdownSectionItem: React.FC<DropdownSectionItemProps> = React.memo((prop
     const splitedTitle = title.split(new RegExp(`(${highlightValue})`, 'gi'));
 
     return (
-        <div className={styles.sectionItem} onClick={onClick}>
+        <li className={styles.sectionItem} onClick={onClick}>
             {
                 splitedTitle.map((text, idx) => {
                     const iS_HIGHLIGHT = text.toLowerCase() === highlightValue.toLowerCase();
@@ -77,7 +77,7 @@ const DropdownSectionItem: React.FC<DropdownSectionItemProps> = React.memo((prop
                 })
             }
 
-        </div>
+        </li>
     )
 })
 
