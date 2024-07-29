@@ -1,0 +1,16 @@
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+.DS_*
+*.log
+logs
+**/*.backup.*
+**/*.back.*
+node_modules
+bower_components
+dist
+.vscode/*
+.history
+.yarn/*
