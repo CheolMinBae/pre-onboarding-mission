@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			http-equiv="X-UA-Compatible"
+			content="IE=edge" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			.box {
+				display: flex;
+				flex-direction: column;
+			}
+			.select{
+				height: 100px;
+				width: 100%;
+				
+				display: flex;
+				flex-direction: column;
+				overflow-y: auto;
+				border: solid 1px gray;
+			}
+			.highlight{
+				font-weight: bold;
+			}
+			.option:hover{
+background-color: #68BBE3;
+
+			}
+		</style>
+	</head>
+	<body>
+		<script
+			type="module"
+			>
+		import { dummy } from './data.js';
+		// 텍스트에서 highlight 분리하는 함수
+		function getHighlightText(input,text){
+		const highlightedText = text.replace(new RegExp(input, 'gi'), match => {
+        return `<span class="highlight">${match}</span>`;
+    });
+	return `<span>${highlightedText}</span>` ;
+	}
+		// select 
+        const selectElement = document.getElementById('select');
+		//select 내의 option 만들어주기
+        dummy.forEach(data => {
+            const option = document.createElement('div');
+			option.setAttribute('id',data.description)
+			option.setAttribute('class','option')
+			option.value = data.description;
+			const childNode = document.createElement('span')
+			childNode.textContent = data.description;
+			option.appendChild(childNode)
+            selectElement.appendChild(option);
+        });
+	
+		
+	const inputElement = document.getElementById('searchInput');
+	// input unfocus 기능 
+	inputElement.addEventListener('blur', function(event) {
+		inputElement.value = '';
+		selectElement.style.visibility ='hidden'
+	
+	});
+	// input eventListner 
+	inputElement.addEventListener('input', function(event) {
+    const inputValue = event.target.value;
+
+   if(inputValue != ''){
+	selectElement.style.visibility ='visible' 
+	// input때마다 highlight 검사하기
+	dummy.forEach(data => {
+            const option = document.getElementById(data.description)
+			const oldChild = option.childNodes
+			const  highlightedNode =  document.createElement('div')
+			const highightedSpan = getHighlightText(inputValue,data.description)
+			highlightedNode.innerHTML = highightedSpan
+			option.replaceChild(highlightedNode,option.children[0])
+        });
+   }
+   else{
+	// Input에 아무것도 없을 때 가리는 기능
+	selectElement.style.visibility ='hidden'
+   }
+});
+		</script>
+
+		
+			<input
+				id ='searchInput'
+				autocomplete="false"
+				/>
+			<div
+				class="select"
+				name="cop"
+				id="select"
+			
+				style="visibility: hidden;"
+				>
+				<option disabled style="text-transform: uppercase; background-color: blue; color: white;"><span>company</span></option>
+				
+		</div>
+		
+	</body>
+</html>
