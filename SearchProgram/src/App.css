@@ -7,9 +7,10 @@ ul {
 li {
   height: 20px;
 }
-li:hover {
+.notAType:hover {
   background-color: lightblue;
-  color : rgb(83, 83, 83);
+  color: rgb(83, 83, 83);
+  cursor: pointer;
 }
 
 input {
@@ -29,4 +30,9 @@ input:focus {
   border: 1px solid navy;
   height: 100px;
   overflow: scroll;
+}
+
+.type {
+  background-color: navy;
+  color: white;
 }
