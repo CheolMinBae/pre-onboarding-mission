@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": "src",
     "composite": true,
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
     "target": "ES2020",
@@ -23,5 +24,5 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src"]
+  "include": ["src", "custom.d.ts"]
 }
