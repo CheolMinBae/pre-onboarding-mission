@@ -1,0 +1,39 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.search-bar {
+  display: flex;
+  flex-direction: row;
+}
+
+.autocomplete-container {
+  position: absolute;
+  width: 205px;
+  height: 120px;
+  overflow-y: scroll;
+  top: 34px;
+  border: 2px solid black;
+}
+
+.autocomplete-item {
+  display: flex;
+  align-items: center;
+  height: 25px;
+  white-space: pre-wrap;
+}
+
+.autocomplete-item:hover {
+  background-color: lightskyblue;
+  cursor: pointer;
+}
+
+.autocomplete-item-type {
+  display: flex;
+  align-items: center;
+  height: 25px;
+
+  background-color: navy !important;
+  color: white !important;
+}
