@@ -1,5 +1,5 @@
-import Search from "./features/search/components/search/Search"
-import Layout from "./shared/@common/layout/Layout"
+import { Search } from "@/features/search/components"
+import { Layout } from "@/shared/@common/components"
 
 function App() {
   return (

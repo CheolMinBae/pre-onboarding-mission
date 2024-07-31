@@ -1,0 +1,12 @@
+.search-form {
+  display: flex;
+  gap: 10px;
+}
+
+.search-form__input {
+  border: 1px solid black;
+  border-radius: 4px;
+  width: 100%;
+  height: 36px;
+  padding: 10px;
+}

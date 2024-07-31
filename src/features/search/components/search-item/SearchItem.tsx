@@ -1,3 +1,6 @@
+import classNames from "classnames"
+import styles from "./SearchItem.module.css"
+
 export default function SearchItem() {
-  return <div>SearchItem</div>
+  return <li className={classNames(styles["search-item"])}>SearchItem</li>
 }

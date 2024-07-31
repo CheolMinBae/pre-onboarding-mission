@@ -8,7 +8,7 @@ module.exports = {
     "plugin:prettier/recommended",
   ],
   ignorePatterns: ["dist", ".eslintrc.cjs"],
-  plugins: ["react-refresh", "react", "prettier"],
+  plugins: ["react-refresh", "react", "prettier", "import-helpers"],
   rules: {
     "no-var": "warn",
     "no-multiple-empty-lines": "warn",
@@ -37,10 +37,39 @@ module.exports = {
       { allowConstantExport: true },
     ],
     "react/react-in-jsx-scope": "off",
+    "import-helpers/order-imports": [
+      "error",
+      {
+        newlinesBetween: "always",
+        groups: ["/^react/", "module", "/^@//", ["parent", "sibling", "index"]],
+        alphabetize: { order: "asc", ignoreCase: true },
+      },
+    ],
+    "no-restricted-imports": [
+      "error",
+      {
+        patterns: ["@/features/*/*"],
+      },
+    ],
+    "import/no-restricted-paths": [
+      "error",
+      {
+        zones: [
+          { target: "./src", from: "./src/features", except: ["./index.ts"] },
+        ],
+      },
+    ],
   },
   settings: {
     react: {
       version: "detect",
     },
+    "import/resolver": {
+      typescript: {},
+      node: {
+        paths: ["src"],
+        extensions: [".js", ".jsx", ".ts", ".tsx"],
+      },
+    },
   },
-};
+}

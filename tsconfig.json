@@ -22,10 +22,9 @@
     "noFallthroughCasesInSwitch": true,
 
     /* 절대 경로 */
-    "baseUrl": ".",
+    "baseUrl": "src",
     "paths": {
-      "@components/*": ["src/components/*"],
-      "@/*": ["src/*"]
+      "@/*": ["./*"]
     },
 
     "types": ["react"]
