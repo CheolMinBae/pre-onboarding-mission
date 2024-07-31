@@ -1,2 +1,6 @@
 .search-item {
 }
+
+.search-item .bold {
+  font-weight: bold;
+}

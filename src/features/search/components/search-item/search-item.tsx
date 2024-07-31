@@ -1,13 +1,25 @@
-import classNames from "classnames"
+import type { Suggestion } from "@/features/search/types"
 import styles from "./search-item.module.css"
-import type { Keyword } from "@/features/search/types"
 
 interface SearchItemProps {
-  keyword: Keyword
+  suggestion: Suggestion
+  value: string
 }
 
-export default function SearchItem({ keyword }: SearchItemProps) {
+export default function SearchItem({ suggestion, value }: SearchItemProps) {
+  const words = suggestion.description.split(/\s+/)
+  const searchValue = value.toLowerCase()
+
+  const isHighlighted = (word: string) =>
+    word.toLowerCase().includes(searchValue)
+
   return (
-    <li className={classNames(styles["search-item"])}>{keyword.description}</li>
+    <li className={styles["search-item"]}>
+      {words.map((word, index) => (
+        <span key={index} className={isHighlighted(word) ? styles.bold : ""}>
+          {word}
+        </span>
+      ))}
+    </li>
   )
 }

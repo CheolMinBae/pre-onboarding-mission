@@ -1,5 +1,4 @@
 import { Dispatch, SetStateAction, ChangeEventHandler } from "react"
-import classNames from "classnames"
 import styles from "./search-form.module.css"
 
 interface SearchFormProps {
@@ -13,9 +12,9 @@ export default function SearchForm({ value, onChange }: SearchFormProps) {
   }
 
   return (
-    <form className={classNames(styles["search-form"])}>
+    <form className={styles["search-form"]}>
       <input
-        className={classNames(styles["search-form__input"])}
+        className={styles["search-form__input"]}
         onChange={handleChange}
         id={"search-input"}
         value={value}
@@ -23,7 +22,7 @@ export default function SearchForm({ value, onChange }: SearchFormProps) {
         placeholder="Please enter your keyword(s) to search."
         autoFocus
       />
-      <button className={classNames(styles["search-form__button"])}>🔍</button>
+      <button className={styles["search-form__button"]}>🔍</button>
     </form>
   )
 }

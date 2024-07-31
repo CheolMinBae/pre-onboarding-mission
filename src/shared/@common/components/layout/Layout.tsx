@@ -1,4 +1,3 @@
-import classNames from "classnames"
 import type { ReactNode } from "react"
 import styles from "./layout.module.css"
 
@@ -7,5 +6,5 @@ interface LayoutProps {
 }
 
 export default function Layout({ children }: LayoutProps) {
-  return <section className={classNames(styles.layout)}>{children}</section>
+  return <section className={styles.layout}>{children}</section>
 }

@@ -1,13 +1,20 @@
-import classNames from "classnames"
-import styles from "./search-suggestions.module.css"
 import { SearchItem } from "@/features/search/components"
+import styles from "./search-suggestions.module.css"
 import { dummy } from "@/shared/@common/data"
 
-export default function SearchSuggestions() {
+interface SearchSuggestionsProps {
+  value: string
+}
+
+export default function SearchSuggestions({ value }: SearchSuggestionsProps) {
   return (
-    <ul className={classNames(styles["search-suggestions"])}>
-      {dummy.map((keyword) => (
-        <SearchItem key={keyword.key} keyword={keyword} />
+    <ul className={styles["search-suggestions"]}>
+      {dummy.map((suggestion) => (
+        <SearchItem
+          key={suggestion.key}
+          value={value}
+          suggestion={suggestion}
+        />
       ))}
     </ul>
   )
