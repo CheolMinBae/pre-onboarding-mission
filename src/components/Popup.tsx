@@ -21,7 +21,7 @@ function Popup({ inputLength, searchText }: PopupProps) {
         data.description.toLowerCase().includes(searchText.toLowerCase())
       );
       if (item && itemRefs.current[item.key]) {
-        itemRefs.current[item.key]?.scrollIntoView({ behavior: "smooth" });
+        itemRefs.current[item.key]?.scrollIntoView({ behavior: "auto" });
       }
     }
   }, [searchText]);
@@ -61,8 +61,7 @@ const Wrapper = styled.div`
   width: 250px;
   height: 100px;
   border: 1px solid blue;
-  /* overflow: scroll; */
-  overflow-y: auto;
+  overflow: scroll;
 `;
 
 const Type = styled.div`
