@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 import { SearchIcon } from "../assets";
-import { dummy } from "../assets/data";
+import { dummy } from "../data";
 
 export default function Form(params) {
     return (
