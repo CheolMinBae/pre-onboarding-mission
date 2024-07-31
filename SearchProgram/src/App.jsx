@@ -7,14 +7,12 @@ function App() {
   const [searchKeyword, setSearchKeyword] = useState("");
 
   useEffect(() => {
-    let timer = setTimeout(() => {
-      console.log("hi");
-    }, 333);
+    let timer = setTimeout(() => {}, 333);
     return () => {
       clearTimeout(timer);
     };
   }, [searchKeyword]);
-
+  
   const onChange = (e) => {
     setSearchKeyword(e.target.value);
   };
@@ -26,7 +24,10 @@ function App() {
         <div id="listContainer">
           <ul>
             {searchList.map((elem, idx) => {
-              console.log(idx == 0, elem.type);
+              const test = elem.description.replace(
+                searchKeyword,
+                `<strong>${searchKeyword}</strong>`
+              );
               return (
                 <>
                   {(idx == 0 ||
@@ -35,9 +36,11 @@ function App() {
                       {elem.type}
                     </li>
                   )}
-                  <li className="notAType" key={idx}>
-                    {elem.description}
-                  </li>
+                  <li
+                    className="notAType"
+                    key={idx}
+                    dangerouslySetInnerHTML={{ __html: test }}
+                  ></li>
                 </>
               );
             })}
