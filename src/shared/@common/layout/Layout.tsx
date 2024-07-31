@@ -1,7 +1,11 @@
 import classNames from "classnames"
-import styles from "Layout.module.css"
 import type { ReactNode } from "react"
+import styles from "./Layout.module.css"
 
-export default function Layout({ children }: { children: ReactNode }) {
+interface LayoutProps {
+  children: ReactNode
+}
+
+export default function Layout({ children }: LayoutProps) {
   return <section className={classNames(styles.layout)}>{children}</section>
 }
