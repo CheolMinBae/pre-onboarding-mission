@@ -1,7 +1,7 @@
 import { styled } from "styled-components";
 import { useState, useRef } from "react";
-import useClickedMe from "../hooks/useClickedMe";
-import { AutoCompleteBox, GroupedAutoComplete } from "./";
+import { useClickedMe } from "@hooks";
+import { AutoCompleteBox, GroupedAutoComplete } from "@components";
 
 export default function SearchInput({ autoCompleteData, ...props }) {
     const [keyword, setKeyword] = useState("");

@@ -1,8 +1,8 @@
 import { styled } from "styled-components";
-import { SearchIcon } from "../assets";
-import { dummy } from "../data";
+import { SearchInput } from "@components";
 
-import { SearchInput } from "./";
+import { SearchIcon } from "@assets";
+import { dummy } from "@/data";
 
 export default function Form() {
     return (
