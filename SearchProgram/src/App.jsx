@@ -12,7 +12,7 @@ function App() {
       clearTimeout(timer);
     };
   }, [searchKeyword]);
-  
+
   const onChange = (e) => {
     setSearchKeyword(e.target.value);
   };
@@ -24,7 +24,7 @@ function App() {
         <div id="listContainer">
           <ul>
             {searchList.map((elem, idx) => {
-              const test = elem.description.replace(
+              const htmlIncludedStr = elem.description.replace(
                 searchKeyword,
                 `<strong>${searchKeyword}</strong>`
               );
@@ -39,7 +39,7 @@ function App() {
                   <li
                     className="notAType"
                     key={idx}
-                    dangerouslySetInnerHTML={{ __html: test }}
+                    dangerouslySetInnerHTML={{ __html: htmlIncludedStr }}
                   ></li>
                 </>
               );
