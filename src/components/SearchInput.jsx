@@ -1,11 +1,24 @@
 import { styled } from "styled-components";
+import { useState, useRef } from "react";
+import useClickedMe from "../hooks/useClickedMe";
 import { AutoCompleteBox, GroupedAutoComplete } from "./";
 
 export default function SearchInput({ autoCompleteData, ...props }) {
+    const [keyword, setKeyword] = useState("");
+
+    function handleInput(e) {
+        const newInput = e.target.value;
+        setKeyword(newInput);
+    }
+
+    const containerRef = useRef();
+    const clickedInput = useClickedMe(containerRef);
+    const showAutoComplete = keyword.length > 0 && clickedInput;
+
     return (
-        <Container>
-            <Input {...props} />
-            <AutoCompleteBox>
+        <Container ref={containerRef}>
+            <Input type="text" onInput={handleInput} spellCheck="false" {...props} />
+            <AutoCompleteBox show={showAutoComplete}>
                 <GroupedAutoComplete data={autoCompleteData} />
             </AutoCompleteBox>
         </Container>

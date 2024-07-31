@@ -1,6 +1,7 @@
 import { styled } from "styled-components";
 
-export default function AutoCompleteBox({ children }) {
+export default function AutoCompleteBox({ children, show }) {
+    if (!show) return;
     return <Container>{children}</Container>;
 }
 
