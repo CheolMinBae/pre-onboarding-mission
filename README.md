@@ -1,4 +1,20 @@
-# pre-onboarding-mission
+# pre-onboarding-mission [2024/08]
+
+## 미션 수행
+- Vite + React + TypeScript
+- 뻘짓 다수 포함
+
+## 컨셉
+1. 사전미션 요구사항 충족
+2. 8 bit 고전게임
+3. 바다 느낌
+4. 이런저런 배경 효과 사용
+5. 이스터에그에 가까운 타이핑 게임 (영혼을 갈았는데 코딩 능력 부족으로 많이 엉성... 😭)
+
+## 영상
+https://github.com/user-attachments/assets/8d0b1ed9-cdc0-49e7-90c9-1cd6791dc5f5
+
+---------------------------------------
 
 ## 사전미션 안내
 

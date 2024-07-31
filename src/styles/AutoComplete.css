@@ -1,0 +1,79 @@
+.auto-complete {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: rgba(52, 73, 94, 0.9);
+    border: 4px solid #7f8c8d;
+    border-top: none;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 11;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.auto-complete-group {
+    padding: 0;
+}
+
+.auto-complete-type {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    padding: 8px;
+    font-weight: bold;
+}
+
+.auto-complete ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.auto-complete-item {
+    padding: 8px;
+    cursor: pointer;
+    color: #ecf0f1;
+    transition: background-color 0.3s;
+}
+
+.auto-complete-item:hover {
+    background-color: #3498db;
+}
+
+.auto-complete-item strong {
+    color: #f1c40f;
+}
+
+.auto-complete::-webkit-scrollbar {
+    width: 12px;
+}
+
+.auto-complete::-webkit-scrollbar-track {
+    background: #2c3e50;
+    border-left: 4px solid #7f8c8d;
+}
+
+.auto-complete::-webkit-scrollbar-thumb {
+    background: #3498db;
+    border: 2px solid #2c3e50;
+}
+
+.auto-complete::-webkit-scrollbar-thumb:hover {
+    background: #2980b9;
+}
+
+.no-results {
+    background-color: rgba(52, 73, 94, 0.9);
+    color: #ecf0f1;
+    padding: 10px;
+    border-radius: 0 0 8px 8px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 14px;
+    text-align: center;
+    border: 4px solid #7f8c8d;
+    border-top: none;
+}
