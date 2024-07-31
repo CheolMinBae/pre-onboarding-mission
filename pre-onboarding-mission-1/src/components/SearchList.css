@@ -1,0 +1,11 @@
+.SearchList {
+  width: 200px;
+  margin-top: 5px;
+  border: 1px solid black;
+}
+
+.group {
+  width: 200px;
+  background-color: blue;
+  color: white;
+}
