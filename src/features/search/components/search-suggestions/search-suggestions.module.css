@@ -1,0 +1,17 @@
+.search-suggestions {
+  width: 100%;
+  max-height: 120px;
+  padding: 10px 40px 10px 10px;
+  overflow-y: auto;
+  background-color: white;
+  border-top: 1px solid #e0e0e0;
+}
+
+.search-suggestions::-webkit-scrollbar {
+  width: 6px;
+}
+
+.search-suggestions::-webkit-scrollbar-thumb {
+  background-color: #e0e0e0;
+  border-radius: 3px;
+}
