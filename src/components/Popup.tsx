@@ -21,7 +21,10 @@ function Popup({ inputLength, searchText }: PopupProps) {
         data.description.toLowerCase().includes(searchText.toLowerCase())
       );
       if (item && itemRefs.current[item.key]) {
-        itemRefs.current[item.key]?.scrollIntoView({ behavior: "auto" });
+        itemRefs.current[item.key]?.scrollIntoView({
+          behavior: "auto",
+          block: "center",
+        });
       }
     }
   }, [searchText]);
