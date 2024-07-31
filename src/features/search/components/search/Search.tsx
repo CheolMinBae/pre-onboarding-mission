@@ -7,8 +7,10 @@ export default function Search() {
 
   return (
     <div className={styles.search}>
-      <SearchForm value={value} onChange={setValue} />
-      {value && <SearchSuggestions value={value} />}
+      <div className={styles.searchContainer}>
+        <SearchForm value={value} onChange={setValue} />
+        {value && <SearchSuggestions value={value} />}
+      </div>
     </div>
   )
 }

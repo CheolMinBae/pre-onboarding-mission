@@ -7,17 +7,16 @@ interface SearchItemProps {
 }
 
 export default function SearchItem({ suggestion, value }: SearchItemProps) {
-  const words = suggestion.description.split(/\s+/)
   const searchValue = value.toLowerCase()
-
-  const isHighlighted = (word: string) =>
-    word.toLowerCase().includes(searchValue)
+  const chars = suggestion.description.split("")
+  const isHighlighted = (char: string): boolean =>
+    searchValue.includes(char.toLowerCase())
 
   return (
     <li className={styles["search-item"]}>
-      {words.map((word, index) => (
-        <span key={index} className={isHighlighted(word) ? styles.bold : ""}>
-          {word}
+      {chars.map((char, index) => (
+        <span key={index} className={isHighlighted(char) ? styles.bold : ""}>
+          {char}
         </span>
       ))}
     </li>
