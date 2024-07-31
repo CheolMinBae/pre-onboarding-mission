@@ -1,0 +1,22 @@
+#root {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+input {
+  width: 300px;
+}
+
+#list {
+  width: 300px;
+  padding: 4px;
+}
+
+#type {
+  background-color: skyblue;
+}
+
+.bold {
+  font-weight: bold;
+}
