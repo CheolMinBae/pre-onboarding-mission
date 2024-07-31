@@ -1,13 +1,13 @@
 import { Dispatch, SetStateAction, ChangeEventHandler } from "react"
 import classNames from "classnames"
-import styles from "./SearchInput.module.css"
+import styles from "./search-form.module.css"
 
-interface SearchInputProps {
+interface SearchFormProps {
   value: string
   onChange: Dispatch<SetStateAction<string>>
 }
 
-export default function SearchInput({ value, onChange }: SearchInputProps) {
+export default function SearchForm({ value, onChange }: SearchFormProps) {
   const handleChange: ChangeEventHandler<HTMLInputElement> = (e) => {
     onChange(e.target.value)
   }
@@ -23,7 +23,7 @@ export default function SearchInput({ value, onChange }: SearchInputProps) {
         placeholder="Please enter your keyword(s) to search."
         autoFocus
       />
-      <button>🔍</button>
+      <button className={classNames(styles["search-form__button"])}>🔍</button>
     </form>
   )
 }

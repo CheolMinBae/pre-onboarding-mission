@@ -1,6 +1,6 @@
 import classNames from "classnames"
 import type { ReactNode } from "react"
-import styles from "./Layout.module.css"
+import styles from "./layout.module.css"
 
 interface LayoutProps {
   children: ReactNode
