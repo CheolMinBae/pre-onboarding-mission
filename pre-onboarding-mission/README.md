@@ -1,30 +1,16 @@
-# React + TypeScript + Vite
+# pre-onboarding-mission
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 사전미션 안내
 
-Currently, two official plugins are available:
+![question](https://github.com/user-attachments/assets/3f139392-b269-4a4f-80e4-11eb82afd249)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+위 영상의 기능과 동일한 기능의 화면을 만들어 주세요
 
-## Expanding the ESLint configuration
+## 주의사항
+1. 화면을 구성하는데 필요한 데이터는 data.js 파일을 이용해 주세요
+2. 프레임워크의 제약사항은 없습니다. vue, react, vanilla 등 본인이 원하는 내용으로 개발해 주세요
+3. 검색버튼과 같이 특정 아이콘이 굳이 같을 필요는 없습니다. 전체적인 기능만 동일하면 됩니다.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json', './tsconfig.app.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## 제출방법
+1. repo를 clone 받은 뒤 aug_onboarding_영문이름 으로 브랜치를 만들어주세요
+2. 브랜치에서 작업 완료 후 master 브랜치로 PR을 남겨주세요
