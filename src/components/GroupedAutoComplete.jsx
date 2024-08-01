@@ -11,17 +11,31 @@ function sortByType(data) {
     return result;
 }
 
-function DisplayByType(data) {
+function highlightKeyword(description, keyword) {
+    const regex = new RegExp(keyword, "gi");
+    const splittedDesc = description.split(regex);
+    const matchedWords = [...description.matchAll(regex)];
+    return splittedDesc.map((wordFragment, index) => (
+        <>
+            {index !== 0 && <strong>{matchedWords[index - 1]}</strong>}
+            {wordFragment}
+        </>
+    ));
+}
+
+function DisplayByType(data, keyword) {
     const result = [];
 
     for (let type in data) {
+        const TypeItems = data[type].map(({ key, description }) => (
+            <Option key={key}>{highlightKeyword(description, keyword)}</Option>
+        ));
+
         result.push(
             <li key={type}>
                 <TypeList>
-                    <TypeTag>{type}</TypeTag>
-                    {data[type].map(({ key, description }) => (
-                        <Option key={key}>{description}</Option>
-                    ))}
+                    <Tag>{type}</Tag>
+                    {TypeItems}
                 </TypeList>
             </li>
         );
@@ -30,10 +44,10 @@ function DisplayByType(data) {
     return result;
 }
 
-export default function GroupedAutoComplete({ data: autoCompleteData }) {
+export default function GroupedAutoComplete({ data: autoCompleteData, keyword }) {
     const sortedAutoComplete = sortByType(autoCompleteData);
 
-    return <Container>{DisplayByType(sortedAutoComplete)}</Container>;
+    return <Container>{DisplayByType(sortedAutoComplete, keyword)}</Container>;
 }
 
 const Container = styled.ul`
@@ -58,7 +72,7 @@ const TypeList = styled.ul`
     flex-direction: column;
 `;
 
-const TypeTag = styled.ul`
+const Tag = styled.ul`
     padding-left: 0.125rem;
 
     color: #0627f2;

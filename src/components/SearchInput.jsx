@@ -19,7 +19,7 @@ export default function SearchInput({ autoCompleteData, ...props }) {
         <Container ref={containerRef}>
             <Input type="text" onInput={handleInput} spellCheck="false" {...props} />
             <AutoCompleteBox show={showAutoComplete}>
-                <GroupedAutoComplete data={autoCompleteData} />
+                <GroupedAutoComplete data={autoCompleteData} keyword={keyword} />
             </AutoCompleteBox>
         </Container>
     );
