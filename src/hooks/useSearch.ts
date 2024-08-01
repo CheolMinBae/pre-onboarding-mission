@@ -1,8 +1,10 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
+
+import { useSearchContext } from '@/context/search-context'
 
 export function useSearch() {
-    const [keyword, setKeyword] = useState<string>('')
-    const [listVisible, setListVisible] = useState<boolean>(false)
+    const { keyword, setKeyword, listVisible, setListVisible } =
+        useSearchContext()
 
     function submit(): void {
         closeList()

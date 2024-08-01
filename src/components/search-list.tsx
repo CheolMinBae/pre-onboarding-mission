@@ -1,9 +1,11 @@
 import { Fragment } from 'react'
 
+import { useSearch } from '@/hooks/useSearch'
 import { parseData } from '@/helpers/parse-data'
 import { dummy } from '@/assets/data'
 
-export default function SearchList({ search }) {
+export default function SearchList() {
+    const search = useSearch()
     const parsedData = parseData(dummy)
 
     return (

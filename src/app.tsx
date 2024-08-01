@@ -10,8 +10,8 @@ export default function App() {
     return (
         <div className="app-container">
             <div className="app-content-box">
-                <SearchBar search={search} />
-                {search.listVisible && <SearchList search={search} />}
+                <SearchBar />
+                {search.listVisible && <SearchList />}
             </div>
         </div>
     )

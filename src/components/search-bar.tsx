@@ -1,6 +1,10 @@
 import { FormEvent } from 'react'
 
-export default function SearchBar({ search }) {
+import { useSearch } from '@/hooks/useSearch'
+
+export default function SearchBar() {
+    const search = useSearch()
+
     function submit(e: FormEvent<HTMLFormElement>): void {
         e.preventDefault()
         search.submit()
