@@ -15,7 +15,9 @@ function App() {
           onSubmit={(event) => event.preventDefault()}
         >
           <SearchBox items={dummy} />
-          <Button>{searchIcon}</Button>
+          <Button>
+            <img src={searchIcon} alt={"Search Icon"} />
+          </Button>
         </form>
       </main>
     </>
