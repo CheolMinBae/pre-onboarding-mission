@@ -3,6 +3,9 @@
     height : 100vh;
 }
 
+.main{
+
+}
 .layout{
     width : 20rem;
     height : 2rem;
@@ -13,6 +16,7 @@
 .search_bar{
     border : 1px solid blue;
     border-radius : 5px;
+    display : block;
 }
 .search_bar:focus{
     outline : 1px solid blue;
@@ -26,3 +30,4 @@
     margin-left : 2rem;
     cursor: pointer;
 }
+
