@@ -1,31 +1,29 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import "./App.css";
 import { dummy } from "./assets/data";
 
 function App() {
   const [searchList, setSearchList] = useState(dummy);
   const [searchKeyword, setSearchKeyword] = useState("");
+  let timerRef = useRef(null);
 
-  // useEffect(() => {
-  //   let timer = setTimeout(() => {}, 333);
-  //   return () => {
-  //     clearTimeout(timer);
-  //   };
-  // }, [searchKeyword]);
+  useEffect(() => {
+    return () => {
+      if (timerRef.current) clearTimeout(timerRef.current);
+    };
+  }, []);
 
   const onChange = (e) => {
-    // setSearchKeyword(e.target.value);
-    let timer = setTimeout(() => {
+    if (timerRef.current) clearTimeout(timerRef.current);
+
+    timerRef.current = setTimeout(() => {
       setSearchKeyword(e.target.value);
-    }, 1000);
-    return () => {
-      clearTimeout(timer);
-    };
+    }, 260);
   };
 
   return (
     <div id="container">
-      <input onChange={(e) => onChange(e)}></input>
+      <input onChange={onChange}></input>
       {searchKeyword && (
         <div id="listContainer">
           <ul>
