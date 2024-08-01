@@ -13,13 +13,13 @@ const SearchBoxSuggestionItem = forwardRef<
   SearchBoxSuggestionItemProps
 >(function ({ item, ...props }, ref) {
   const searchTokens = useContext(SearchContext);
-  const boldedKey = useMemo(() => {
+  const boldedDescription = useMemo(() => {
     // TODO: Keyword bolding logic
-    return item.key;
+    return item.description;
   }, [searchTokens]);
   return (
     <li className="search-box-suggestion-item" {...props} ref={ref}>
-      {boldedKey}
+      {boldedDescription}
     </li>
   );
 });
