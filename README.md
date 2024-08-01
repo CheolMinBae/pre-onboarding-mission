@@ -1,16 +1,33 @@
-# pre-onboarding-mission
+# 프리온보딩 챌린지 8월 사전미션
 
-## 사전미션 안내
+![](aug_FE_preonboarding_challenge.gif)
 
-![question](https://github.com/user-attachments/assets/3f139392-b269-4a4f-80e4-11eb82afd249)
+## :white_check_mark: 과제 내용
 
-위 영상의 기능과 동일한 기능의 화면을 만들어 주세요
+-   [x] 검색창 레이아웃 구현
+-   [x] 검색창 입력시 자동완성 컴포넌트 출력
+-   [x] 검색어와 자동완성 목록의 문자열이 일치하는 부분은 강조 표시
 
-## 주의사항
-1. 화면을 구성하는데 필요한 데이터는 data.js 파일을 이용해 주세요
-2. 프레임워크의 제약사항은 없습니다. vue, react, vanilla 등 본인이 원하는 내용으로 개발해 주세요
-3. 검색버튼과 같이 특정 아이콘이 굳이 같을 필요는 없습니다. 전체적인 기능만 동일하면 됩니다.
+## :white_check_mark: 주요 구현 내용
 
-## 제출방법
-1. repo를 clone 받은 뒤 aug_onboarding_영문이름 으로 브랜치를 만들어주세요
-2. 브랜치에서 작업 완료 후 master 브랜치로 PR을 남겨주세요
+### SearchInput({ autoCompleteData })
+
+버튼과 입력창을 포함한 검색창 전체를 구현한 컴포넌트입니다
+컴포넌트 외부를 클릭시 자동완성 컴포넌트가 출력되지 않습니다
+
+### AutoCompleteBox({ children, show })
+
+자동완성창의 외부 프레임입니다
+레이아웃의 편의성과 확장성을 고려해 자동완성창 내용물과 별도의 컴포넌트로 구현했습니다
+
+### GroupedAutoComplete({ data: autoCompleteData, keyword })
+
+자동완성창의 내용물입니다
+자동완성 목록을 정렬하고, 정렬된 배열에 따라 자동완성 선택지를 출력합니다
+
+## :question: 질문 및 PR 포인트
+
+-   변수 작명법이 적절한지 궁금합니다
+-   더 직관적인 jsx 구조를 만들고 싶습니다
+-   구현 로직은 함수 하나가 좀 많은 일을 한다 싶으면 쪼개놨는데, 일반적인 방식인지 궁금합니다
+-   특히 GroupedAutoComplete를 집중적으로 리뷰하면 좋을 것 같습니다
