@@ -11,7 +11,7 @@ export default function SearchBar({ search }) {
             <input
                 className="search-input"
                 value={search.keyword}
-                onChange={(e) => search.setKeyword(e.target.value)}
+                onChange={(e) => search.updateKeyword(e.target.value)}
             />
             <button className="search-button">Search</button>
         </form>

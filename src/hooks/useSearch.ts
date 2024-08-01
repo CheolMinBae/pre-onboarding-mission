@@ -9,6 +9,16 @@ export function useSearch() {
         alert(`"${keyword}" search action`)
     }
 
+    function updateKeyword(text): void {
+        setKeyword(text)
+        openList()
+    }
+
+    function selectItem(item): void {
+        setKeyword(item)
+        closeList()
+    }
+
     function openList(): void {
         setListVisible(true)
     }
@@ -20,8 +30,6 @@ export function useSearch() {
     useEffect(() => {
         if (keyword.length === 0) {
             closeList()
-        } else {
-            openList()
         }
     }, [keyword])
 
@@ -29,7 +37,8 @@ export function useSearch() {
         keyword,
         listVisible,
 
-        setKeyword,
+        updateKeyword,
         submit,
+        selectItem,
     }
 }
