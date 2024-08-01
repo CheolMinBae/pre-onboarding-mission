@@ -14,13 +14,13 @@ function App() {
   // }, [searchKeyword]);
 
   const onChange = (e) => {
-    setSearchKeyword(e.target.value);
-    //   let timer = setTimeout(() => {
-    //   setSearchKeyword(e.target.value);
-    // }, 1000);
-    // return () => {
-    //   clearTimeout(timer);
-    // };
+    // setSearchKeyword(e.target.value);
+    let timer = setTimeout(() => {
+      setSearchKeyword(e.target.value);
+    }, 1000);
+    return () => {
+      clearTimeout(timer);
+    };
   };
 
   return (
@@ -30,10 +30,10 @@ function App() {
         <div id="listContainer">
           <ul>
             {searchList.map((elem, idx) => {
-              const regExp = new RegExp(searchKeyword, "g");
+              const regExp = new RegExp(searchKeyword, "gi");
               const htmlIncludedStr = elem.description.replace(
                 regExp,
-                `<strong>${searchKeyword}</strong>`
+                `<strong>$&</strong>`
               );
               return (
                 <>
