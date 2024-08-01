@@ -24,7 +24,7 @@ const SearchBoxSuggestion = forwardRef<
     items.reduce(groupItemsByType, {}),
   );
   return (
-    <ul {...props} ref={ref}>
+    <ul className="search-box-suggestion" {...props} ref={ref}>
       {groupedItems.map(([type, items]) => {
         return (
           <SearchBoxSuggestionGroup key={type} label={type}>

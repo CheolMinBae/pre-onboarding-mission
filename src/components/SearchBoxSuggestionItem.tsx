@@ -17,7 +17,7 @@ const SearchBoxSuggestionItem = forwardRef<
     return item.key;
   }, [searchTokens]);
   return (
-    <li {...props} ref={ref}>
+    <li className="search-box-suggestion-item" {...props} ref={ref}>
       {boldedKey}
     </li>
   );

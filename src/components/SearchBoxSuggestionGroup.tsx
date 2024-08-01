@@ -11,9 +11,9 @@ const SearchBoxSuggestionGroup = forwardRef<
   SearchBoxSuggestionGroupProps
 >(function ({ label, children, ...props }, ref) {
   return (
-    <li {...props} ref={ref}>
-      <legend>{label}</legend>
-      <ul>{children}</ul>
+    <li className="search-box-suggestion-group" {...props} ref={ref}>
+      <legend className="search-box-suggestion-group-label">{label}</legend>
+      <ul className="search-box-suggestion-group-list">{children}</ul>
     </li>
   );
 });

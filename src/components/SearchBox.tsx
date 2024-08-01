@@ -36,16 +36,19 @@ const SearchBox = forwardRef<HTMLInputElement, SearchBoxProps>(function (
   );
   return (
     <SearchContext.Provider value={searchToken}>
-      <input
-        type="search"
-        onInput={(event) => {
-          setValue(event.currentTarget.value);
-          if (onInput) onInput(event);
-        }}
-        {...props}
-        ref={ref}
-      />
-      <SearchBoxSuggestion items={items} />
+      <div className="search-box-wrapper">
+        <input
+          type="search"
+          className="search-box"
+          onInput={(event) => {
+            setValue(event.currentTarget.value);
+            if (onInput) onInput(event);
+          }}
+          {...props}
+          ref={ref}
+        />
+        <SearchBoxSuggestion items={items} />
+      </div>
     </SearchContext.Provider>
   );
 });
