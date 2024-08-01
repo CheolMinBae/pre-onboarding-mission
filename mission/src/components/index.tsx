@@ -36,7 +36,11 @@ const Input = () => {
               )}
               <div
                 tabIndex={0}
-                className={`cursor-pointer focus:bg-blue-300 hover:bg-blue-300`}
+                className={`cursor-pointer focus:bg-blue-300 hover:bg-blue-300 ${
+                  el.description.toLowerCase().includes(text.toLowerCase())
+                    ? "font-bold"
+                    : "font-normal"
+                }`}
                 onClick={() => handleChangeDescription(el.description)}
               >
                 {el.description}
