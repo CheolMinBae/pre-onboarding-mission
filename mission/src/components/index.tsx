@@ -3,9 +3,15 @@ import { dummy } from "../data.ts";
 
 const Input = () => {
   const [text, setText] = useState("");
+  const [selectedDescription, setSelectedDescription] = useState<string>("");
 
   const handleChangeInput = (e: ChangeEvent<HTMLInputElement>) => {
     setText(e.target.value);
+  };
+
+  const handleChangeDescription = (description: string) => {
+    setText(description);
+    setSelectedDescription(description);
   };
 
   return (
@@ -19,13 +25,22 @@ const Input = () => {
         />
       </div>
       {text && (
-        <div className="w-60 h-32 border-2 overflow-scroll">
+        <div className="w-60 h-[120px] border-2 overflow-scroll">
           {dummy.map((el, index) => (
-            <div key={el.key}>
+            <div
+              key={el.key}
+              onClick={() => handleChangeDescription(el.description)}
+            >
               {(index === 0 || el.type !== dummy[index - 1].type) && (
-                <div>{el.type}</div>
+                <div className="bg-blue-600 text-white">{el.type}</div>
               )}
-              <div>{el.description}</div>
+              <div
+                tabIndex={0}
+                className={`cursor-pointer focus:bg-blue-300 hover:bg-blue-300`}
+                onClick={() => handleChangeDescription(el.description)}
+              >
+                {el.description}
+              </div>
             </div>
           ))}
         </div>
