@@ -8,12 +8,11 @@ export default function AutoCompleteBox({ children, show }) {
 const Container = styled.div`
     position: absolute;
     z-index: 1;
-    top: 1.7rem;
-    width: 16.5rem;
+    top: 2.5rem;
+    width: 24rem;
     margin: 0px;
     padding: 0px;
-    padding-top: 0.375rem;
-    padding-bottom: 1px;
+    padding-top: 0.45rem;
     border: 1px solid #cdcdcd;
     border-radius: 0.2rem;
 `;

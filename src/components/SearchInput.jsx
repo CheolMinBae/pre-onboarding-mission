@@ -33,10 +33,11 @@ const Container = styled.label`
 
 const Input = styled.input`
     z-index: 2;
-    width: 16.5rem;
-    height: 2.125rem;
+    width: 24rem;
+    height: 3rem;
     border: none;
     border: 1px solid #cdcdcd;
-    border-radius: 0.25rem;
+    border-radius: 0.5rem;
     outline: none;
+    font-size: 1.5rem;
 `;
