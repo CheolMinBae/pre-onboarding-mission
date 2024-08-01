@@ -6,15 +6,21 @@ function App() {
   const [searchList, setSearchList] = useState(dummy);
   const [searchKeyword, setSearchKeyword] = useState("");
 
-  useEffect(() => {
-    let timer = setTimeout(() => {}, 333);
-    return () => {
-      clearTimeout(timer);
-    };
-  }, [searchKeyword]);
+  // useEffect(() => {
+  //   let timer = setTimeout(() => {}, 333);
+  //   return () => {
+  //     clearTimeout(timer);
+  //   };
+  // }, [searchKeyword]);
 
   const onChange = (e) => {
     setSearchKeyword(e.target.value);
+    //   let timer = setTimeout(() => {
+    //   setSearchKeyword(e.target.value);
+    // }, 1000);
+    // return () => {
+    //   clearTimeout(timer);
+    // };
   };
 
   return (
@@ -24,8 +30,9 @@ function App() {
         <div id="listContainer">
           <ul>
             {searchList.map((elem, idx) => {
+              const regExp = new RegExp(searchKeyword, "g");
               const htmlIncludedStr = elem.description.replace(
-                searchKeyword,
+                regExp,
                 `<strong>${searchKeyword}</strong>`
               );
               return (
