@@ -1,4 +1,4 @@
-interface Dummy {
+export interface Dummy {
   description: string;
   key: string;
   type: "COMPANY" | "COUNTRY" | "PEOPLE" | "JOB";
