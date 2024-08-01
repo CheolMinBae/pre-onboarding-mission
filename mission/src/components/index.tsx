@@ -1,21 +1,9 @@
-import { ChangeEvent, useState } from "react";
+import useInput from "../hooks/useInput.ts";
 import searchIcon from "../assets/search.svg";
 import SearchBox from "../SearchBox/index.tsx";
 
 const Input = () => {
-  const [text, setText] = useState("");
-  // const [selectedDescription, setSelectedDescription] = useState<string | null>(
-  //   ""
-  // );
-
-  const handleChangeInput = (e: ChangeEvent<HTMLInputElement>) => {
-    setText(e.target.value);
-  };
-
-  // const handleChangeDescription = (description: string) => {
-  //   setText(description);
-  //   setSelectedDescription(description);
-  // };
+  const { text, handleChangeInput, handleChangeDescription } = useInput();
 
   return (
     <div>
@@ -30,7 +18,12 @@ const Input = () => {
           <img src={searchIcon} className="h-8" alt="search icon" />
         </button>
       </div>
-      {text && <SearchBox />}
+      {text && (
+        <SearchBox
+          text={text}
+          handleChangeDescription={handleChangeDescription}
+        />
+      )}
     </div>
   );
 };

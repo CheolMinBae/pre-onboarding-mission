@@ -3,7 +3,7 @@ import { ChangeEvent, useState } from "react";
 const useInput = () => {
   const [text, setText] = useState("");
   const [selectedDescription, setSelectedDescription] = useState<string | null>(
-    ""
+    null
   );
 
   const handleChangeInput = (e: ChangeEvent<HTMLInputElement>) => {
