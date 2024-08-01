@@ -1,3 +1,4 @@
+import "./SearchBoxSuggestionItem.css";
 import { SearchBoxItemData } from "../data.ts";
 import React, { forwardRef, useContext, useMemo } from "react";
 import SearchContext from "../contexts/SearchContext.ts";

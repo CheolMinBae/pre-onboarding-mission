@@ -1,3 +1,4 @@
+import "./SearchBox.css";
 import { SearchBoxItemData } from "../data.ts";
 import SearchBoxSuggestion from "./SearchBoxSuggestion.tsx";
 import React, { forwardRef, useEffect, useState } from "react";
@@ -47,7 +48,10 @@ const SearchBox = forwardRef<HTMLInputElement, SearchBoxProps>(function (
           {...props}
           ref={ref}
         />
-        <SearchBoxSuggestion items={items} />
+        <SearchBoxSuggestion
+          style={{ display: value ? "block" : "none" }}
+          items={items}
+        />
       </div>
     </SearchContext.Provider>
   );

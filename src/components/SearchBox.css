@@ -1,0 +1,11 @@
+.search-box-wrapper {
+    display: inline flow-root;
+    position: relative;
+}
+
+.search-box-suggestion {
+    position: absolute;
+    margin-top: 0;
+    border: #535bf2 solid 1px;
+    width: 100%;
+}

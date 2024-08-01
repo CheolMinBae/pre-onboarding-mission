@@ -1,3 +1,4 @@
+import "./SearchBoxSuggestion.css";
 import { SearchBoxItemData } from "../data";
 import SearchBoxSuggestionGroup from "./SearchBoxSuggestionGroup.tsx";
 import SearchBoxSuggestionItem from "./SearchBoxSuggestionItem.tsx";
