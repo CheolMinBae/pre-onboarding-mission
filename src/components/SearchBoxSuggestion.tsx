@@ -12,7 +12,7 @@ interface SearchBoxSuggestionProps
 const SearchBoxSuggestion = forwardRef<
   HTMLUListElement,
   SearchBoxSuggestionProps
->(function ({ items, ...props }, ref) {
+>(function ({ items, className, ...props }, ref) {
   const groupItemsByType = (
     map: { [type: string]: SearchBoxItemData[] },
     item: SearchBoxItemData,
@@ -25,7 +25,11 @@ const SearchBoxSuggestion = forwardRef<
     items.reduce(groupItemsByType, {}),
   );
   return (
-    <ul className="search-box-suggestion" {...props} ref={ref}>
+    <ul
+      className={`search-box-suggestion ${className ?? ""}`}
+      {...props}
+      ref={ref}
+    >
       {groupedItems.map(([type, items]) => {
         return (
           <SearchBoxSuggestionGroup key={type} label={type}>

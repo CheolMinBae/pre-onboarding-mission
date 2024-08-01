@@ -22,7 +22,7 @@ const useDebouncedEffect = (
   }, deps);
 
 const SearchBox = forwardRef<HTMLInputElement, SearchBoxProps>(function (
-  { items, onSearch, onInput, ...props },
+  { items, onSearch, onInput, className, ...props },
   ref,
 ) {
   const [searchToken, setSearchToken] = useState([] as string[]);
@@ -40,7 +40,7 @@ const SearchBox = forwardRef<HTMLInputElement, SearchBoxProps>(function (
       <div className="search-box-wrapper">
         <input
           type="search"
-          className="search-box"
+          className={`search-box ${className ?? ""}`}
           onInput={(event) => {
             setValue(event.currentTarget.value);
             if (onInput) onInput(event);
