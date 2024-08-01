@@ -19,11 +19,27 @@ export default function SearchList({ search }) {
                             key={item.key}
                             onClick={() => search.selectItem(item.key)}
                         >
-                            {item.description}
+                            <EmphasizedText
+                                text={item.description}
+                                keyword={search.keyword}
+                            />
                         </div>
                     ))}
                 </Fragment>
             ))}
         </div>
     )
+}
+
+function EmphasizedText({ text, keyword }) {
+    const caseFreeRegExp = new RegExp(keyword, 'gi')
+    const boldTextIterator = text.matchAll(caseFreeRegExp)
+    const normalTextArray = text.split(caseFreeRegExp)
+
+    return normalTextArray.map((text, index) => (
+        <Fragment>
+            {!!index && <strong>{boldTextIterator.next().value}</strong>}
+            {text}
+        </Fragment>
+    ))
 }
