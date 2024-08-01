@@ -1,5 +1,17 @@
 @layer components {
-    .search-box-suggestion-item:hover {
-        background: rgba(0, 0, 0, 0.3);
+    .search-box-suggestion-item {
+        padding: 0;
+    }
+
+    .search-box-suggestion-item button {
+        padding: 0.5rem 0 0.5rem 1rem;
+        border: none;
+        display: block;
+        width: 100%;
+        text-align: left;
+    }
+
+    .search-box-suggestion-item button:active {
+        background: rgba(0, 0, 0, 0.5);
     }
 }

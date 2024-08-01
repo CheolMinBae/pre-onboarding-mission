@@ -53,7 +53,7 @@ const SearchBoxSuggestionItem = forwardRef<
       {...props}
       ref={ref}
     >
-      {boldedDescription}
+      <button>{boldedDescription}</button>
     </li>
   );
 });

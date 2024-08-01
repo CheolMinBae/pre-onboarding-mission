@@ -16,7 +16,11 @@ function App() {
           onSubmit={(event) => event.preventDefault()}
           style={{ width: "100%" }}
         >
-          <SearchBox className="stick-right" items={dummy} />
+          <SearchBox
+            className="stick-right"
+            style={{ width: "clamp(200px, 60vw, 480px)" }}
+            items={dummy}
+          />
           <Button className="stick-left">
             <SearchIcon />
           </Button>

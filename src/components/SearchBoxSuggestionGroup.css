@@ -1,18 +1,26 @@
 @layer components {
+    :root {
+        --searchbox-suggestion-group-bg-color: #535bf2;
+        --searchbox-suggestion-group-color: #ffffff;
+    }
+
+    @media (prefers-color-scheme: light) {
+        :root {
+            --searchbox-suggestion-group-bg-color: gray;
+            --searchbox-suggestion-group-color: black;
+        }
+    }
     .search-box-suggestion-group-list {
         list-style: none;
         padding: 0;
         margin: 0;
     }
 
-    .search-box-suggestion-group-list > li {
-        padding-left: 1rem;
-    }
-
     .search-box-suggestion-group-label {
-        color: #888888;
         font-family: monospace;
-        background-color: #535bf2;
+        color: var(--searchbox-suggestion-group-color);
+        background-color: var(--searchbox-suggestion-group-bg-color);
         margin: 0;
+        padding: 0.25rem;
     }
 }
