@@ -37,3 +37,23 @@ body {
   min-width: 320px;
   min-height: 100vh;
 }
+
+.custom-scrollbar {
+  overflow-y: scroll;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #e0f0ff;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #007acc;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #005fa3;
+}
