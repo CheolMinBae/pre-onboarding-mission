@@ -1,6 +1,12 @@
 import { ChangeEvent, useState } from "react";
 
-const useInput = () => {
+export interface useInputProps {
+  text: string;
+  handleChangeInput: (e: ChangeEvent<HTMLInputElement>) => void;
+  handleChangeDescription: (description: string) => void;
+}
+
+const useInput = (): useInputProps => {
   const [text, setText] = useState("");
   const [selectedDescription, setSelectedDescription] = useState<string | null>(
     null

@@ -1,10 +1,10 @@
-import Input from "./components";
+import SearchPage from "./pages/searchPage";
 import "./index.css";
 
 function App() {
   return (
     <>
-      <Input />
+      <SearchPage />
     </>
   );
 }

@@ -1,10 +1,6 @@
 import { dummy } from "../data.ts";
+import { useInputProps } from "../hooks/useInput.ts";
 import boldText from "../utils/boldText.tsx";
-
-interface useInputProps {
-  text: string;
-  handleChangeDescription: (description: string) => void;
-}
 
 const SearchBox = ({ text, handleChangeDescription }: useInputProps) => {
   return (
