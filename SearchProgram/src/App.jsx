@@ -7,12 +7,6 @@ function App() {
   const [searchKeyword, setSearchKeyword] = useState("");
   let timerRef = useRef(null);
 
-  useEffect(() => {
-    return () => {
-      if (timerRef.current) clearTimeout(timerRef.current);
-    };
-  }, []);
-
   const onChange = (e) => {
     if (timerRef.current) clearTimeout(timerRef.current);
 
@@ -20,6 +14,12 @@ function App() {
       setSearchKeyword(e.target.value);
     }, 260);
   };
+
+  useEffect(() => {
+    return () => {
+      if (timerRef.current) clearTimeout(timerRef.current);
+    };
+  }, []);
 
   return (
     <div id="container">

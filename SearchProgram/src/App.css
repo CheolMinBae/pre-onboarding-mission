@@ -9,7 +9,8 @@ li {
 }
 .notAType:hover {
   background-color: lightblue;
-  color: rgb(83, 83, 83);
+  background-color: #e5e5f2;
+  color: #525252;
   cursor: pointer;
 }
 
@@ -17,19 +18,26 @@ input {
   width: 100%;
   box-sizing: border-box;
   outline: none;
+  border-radius: 0;
+  border: solid 2px #000033;
 }
 input:focus {
-  border-color: blue;
+  border-color: #400080;
 }
 
 #container {
   width: 200px;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  margin-left: -100px;
 }
 
 #listContainer {
   border: 1px solid navy;
   height: 100px;
   overflow: scroll;
+  margin-top: 2px;
 }
 
 .type {
