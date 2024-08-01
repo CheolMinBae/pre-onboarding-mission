@@ -1,0 +1,21 @@
+body {
+  margin: 0;
+}
+* {
+  box-sizing: border-box;
+}
+.app {
+  margin: 10px;
+}
+.search-box {
+  display: flex;
+  gap: 5px;
+}
+.search-input {
+  width: 200px;
+}
+.search-select{
+  width: 200px;
+  display: none;
+}
+
