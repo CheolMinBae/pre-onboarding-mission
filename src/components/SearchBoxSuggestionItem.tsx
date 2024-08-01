@@ -1,5 +1,6 @@
 import { SearchBoxItemData } from "../data.ts";
-import React, { forwardRef } from "react";
+import React, { forwardRef, useContext, useMemo } from "react";
+import SearchContext from "../contexts/SearchContext.ts";
 
 interface SearchBoxSuggestionItemProps
   extends React.HTMLAttributes<HTMLLIElement> {
@@ -10,9 +11,14 @@ const SearchBoxSuggestionItem = forwardRef<
   HTMLLIElement,
   SearchBoxSuggestionItemProps
 >(function ({ item, ...props }, ref) {
+  const searchTokens = useContext(SearchContext);
+  const boldedKey = useMemo(() => {
+    // TODO: Keyword bolding logic
+    return item.key;
+  }, [searchTokens]);
   return (
     <li {...props} ref={ref}>
-      {item.key}
+      {boldedKey}
     </li>
   );
 });
