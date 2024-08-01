@@ -1,6 +1,7 @@
 import { dummy } from "../../data";
 import { v4 as uuidv4 } from "uuid";
 import useDebounce from "../hooks/useDebounce";
+import styles from "./search_result.module.scss";
 
 export default function SearchResult(props: { query: string }) {
   const dummyTypes = [...new Set(dummy.map((dummyItem) => dummyItem.type))];
@@ -25,7 +26,9 @@ export default function SearchResult(props: { query: string }) {
     return dummy.map(
       (dummyItem) =>
         dummyItem.type === dummyTypeName && (
-          <li key={uuidv4()}>{getHighlightKeyword(dummyItem.description)}</li>
+          <li key={uuidv4()} className={styles.result_li}>
+            {getHighlightKeyword(dummyItem.description)}
+          </li>
         )
     );
   };
@@ -33,10 +36,10 @@ export default function SearchResult(props: { query: string }) {
   return (
     <>
       {props.query.length > 0 && (
-        <section>
+        <section className={styles.result_section}>
           {dummyTypes.map((dummyTypeItem) => (
-            <ul key={uuidv4()}>
-              <h3>{dummyTypeItem}</h3>
+            <ul key={uuidv4()} className={styles.result_ul}>
+              <h3 className={styles.type_name}>{dummyTypeItem}</h3>
               {dummyItemLiElement(dummyTypeItem)}
             </ul>
           ))}

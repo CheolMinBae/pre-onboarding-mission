@@ -1,0 +1,14 @@
+.form {
+  margin-top: 25rem;
+}
+
+.input {
+  padding: 1rem;
+  width: $search-width;
+  border-radius: 10px;
+  outline: 1px solid grey;
+
+  &:focus {
+    outline: 2px solid $main-blue-color;
+  }
+}
