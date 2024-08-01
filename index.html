@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pre-onboarding-mission</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,400,1,0" />
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="./data.js" type="module"></script>
+</head>
+<body>
+    <div id="app">
+        <div class="input_wrap" >
+            <input type="text" id="search" v-model="input" @focus="isFocus = true">
+            <div id="autoComplete" v-if="isFocus && getFilteredList.length">
+                <span 
+                    v-for="{ description, key } in getFilteredList" :key="key" 
+                    @click="clickKeyword(key)" 
+                    v-html="highlightDescription(description)"
+                />
+            </div>
+        </div>
+        <button>
+            <span class="material-symbols-outlined">search</span>
+        </button>
+    </div>
+        
+    </form>
+    <script type="module">
+        import {dummy} from './data.js';
+
+        new Vue({
+            el: "#app",
+            data:{
+                input: '',
+                isFocus: false,
+            },
+            computed: {
+                isInput() {
+                    return this.input.trim().length
+                },
+                getOriginData() {
+                    return dummy;
+                },
+                /**
+                 * input 있을 때 : 해당 단어가 포함된 목록
+                 * input 없을 때 : 전체 목록
+                 * @return { Array } 자동완성 목록
+                 */
+                getFilteredList() {
+                    // 정규표현식을 위한 특수문자 처리
+                    const trimedInput = this.input.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').trim();
+
+                    if (trimedInput.length) {
+                        // input이 포함된 항목 filter
+                        return this.getOriginData.filter(({ description }) => {
+                            const regExp = new RegExp(trimedInput, "gi");
+                            
+                            return description.match(regExp);
+                        });
+                    }
+
+                    return this.getOriginData;
+                }
+            },
+            methods:{
+                /**
+                 * 자동완성 단어 클릭 시 input에 반영
+                 */
+                clickKeyword(selected) {
+                    const { description } = this.getOriginData.find(({ key })=> key === selected );
+                    this.input = description;
+                    this.isFocus = false;
+                },
+                /**
+                 * 검색어와 일치하는 단어 하이라이팅
+                */
+                highlightDescription(description) {
+                    // 정규표현식을 위한 특수문자 처리
+                    const trimedInput = this.input.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').trim();
+                    const regExp = new RegExp(trimedInput, "gi");
+                    return description.replace(regExp, (match) =>  `<strong>${match}</strong>`)
+                }
+            }
+            
+        })
+    </script>
+</body>
+</html>
