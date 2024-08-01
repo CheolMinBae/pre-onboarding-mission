@@ -1,0 +1,24 @@
+@layer base, components, utilities;
+
+#root {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+#search {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+}
+
+@layer utilities {
+    .stick-left {
+        border-radius: 0 8px 8px 0;
+    }
+
+    .stick-right {
+        border-radius: 8px 0 0 8px;
+    }
+}

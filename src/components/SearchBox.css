@@ -1,0 +1,33 @@
+@layer components {
+    :root {
+        --searchbox-bg-color: #213547;
+        --searchbox-color: #ffffff;
+    }
+
+    @media (prefers-color-scheme: light) {
+        :root {
+            --searchbox-bg-color: lightgray;
+            --searchbox-color: black;
+        }
+    }
+
+    .search-box-wrapper {
+        display: inline flow-root;
+        position: relative;
+    }
+
+    .search-box-wrapper .search-box-suggestion {
+        position: absolute;
+        width: 100%;
+    }
+
+    .search-box {
+        width: 100%;
+        height: 100%;
+        border: none;
+        border-radius: 8px;
+        background-color: var(--searchbox-bg-color);
+        color: var(--searchbox-color);
+        padding: 0.25rem;
+    }
+}

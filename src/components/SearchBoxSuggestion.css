@@ -1,0 +1,28 @@
+@layer components {
+    :root {
+        --searchbox-suggestion-bg-color: #213547;
+        --searchbox-suggestion-border-color: #535bf2;
+        --searchbox-suggestion-color: #ffffff;
+    }
+
+    @media (prefers-color-scheme: light) {
+        :root {
+            --searchbox-suggestion-bg-color: lightgray;
+            --searchbox-suggestion-border-color: gray;
+            --searchbox-suggestion-color: black;
+        }
+    }
+    .search-box-suggestion {
+        list-style: none;
+        padding-left: 0;
+        text-align: left;
+        max-height: max(100px, 20vh);
+        overflow-y: auto;
+        background-color: var(--searchbox-suggestion-bg-color);
+        border: var(--searchbox-suggestion-border-color) solid;
+        border-width: 0 1px 1px 1px;
+        border-radius: 8px;
+
+        margin: 0;
+    }
+}
