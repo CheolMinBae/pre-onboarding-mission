@@ -16,7 +16,7 @@
         list-style: none;
         padding-left: 0;
         text-align: left;
-        max-height: 20vh;
+        max-height: max(100px, 20vh);
         overflow-y: auto;
         background-color: var(--searchbox-suggestion-bg-color);
         border: var(--searchbox-suggestion-border-color) solid;
