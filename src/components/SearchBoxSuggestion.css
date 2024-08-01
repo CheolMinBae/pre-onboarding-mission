@@ -1,7 +1,9 @@
-.search-box-suggestion {
-    list-style: none;
-    padding-left: 0;
-    text-align: left;
-    max-height: 20vh;
-    overflow-y: auto;
+@layer components {
+    .search-box-suggestion {
+        list-style: none;
+        padding-left: 0;
+        text-align: left;
+        max-height: 20vh;
+        overflow-y: auto;
+    }
 }

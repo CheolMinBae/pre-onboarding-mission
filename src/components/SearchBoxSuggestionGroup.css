@@ -1,16 +1,18 @@
-.search-box-suggestion-group-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
+@layer components {
+    .search-box-suggestion-group-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
 
-.search-box-suggestion-group-list > li {
-    padding-left: 2rem;
-}
+    .search-box-suggestion-group-list > li {
+        padding-left: 1rem;
+    }
 
-.search-box-suggestion-group-label {
-    color: #888888;
-    font-family: monospace;
-    background-color: #535bf2;
-    margin: 0;
+    .search-box-suggestion-group-label {
+        color: #888888;
+        font-family: monospace;
+        background-color: #535bf2;
+        margin: 0;
+    }
 }
