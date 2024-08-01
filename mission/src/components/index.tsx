@@ -1,9 +1,26 @@
 import { ChangeEvent, useState } from "react";
 import { dummy } from "../data.ts";
 
+const boldText = (text: string, query: string) => {
+  if (!query.trim()) return text;
+
+  const parts = text.split(new RegExp(`(${query})`, "gi"));
+  return parts.map((part, index) =>
+    query.toLowerCase() === part.toLowerCase() ? (
+      <strong key={index} className="font-bold">
+        {part}
+      </strong>
+    ) : (
+      part
+    )
+  );
+};
+
 const Input = () => {
   const [text, setText] = useState("");
-  const [selectedDescription, setSelectedDescription] = useState<string>("");
+  const [selectedDescription, setSelectedDescription] = useState<string | null>(
+    ""
+  );
 
   const handleChangeInput = (e: ChangeEvent<HTMLInputElement>) => {
     setText(e.target.value);
@@ -36,14 +53,10 @@ const Input = () => {
               )}
               <div
                 tabIndex={0}
-                className={`cursor-pointer hover:bg-blue-300 ${
-                  el.description.toLowerCase().includes(text.toLowerCase())
-                    ? "font-bold"
-                    : "font-normal"
-                }`}
+                className="cursor-pointer hover:bg-blue-300"
                 onClick={() => handleChangeDescription(el.description)}
               >
-                {el.description}
+                {boldText(el.description, text)}
               </div>
             </div>
           ))}
