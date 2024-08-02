@@ -1,0 +1,52 @@
+.header {
+    width: 40%;
+    height: 10px;
+    margin: 10px 0;
+    background-color: #000;
+}
+.searchBox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 5px;
+}
+.searchInput {
+    width: 400px;
+    padding: 10px 0 10px 15px;
+    margin-left: 5px;
+    border-radius: 6px;
+    border: 1px solid rgba(0, 0, 0, 0.44);
+}
+.searchInput:focus {
+    border: 1px solid rgba(255, 0, 0, 0.96);
+    border-radius: inherit;
+}
+.searchIco {
+    margin-left: 5px;
+    width: 25px;
+    height: 25px;
+}
+.searchIco:hover {
+    width: 25px;
+    height: 25px;
+    border: 1px dashed rgba(0, 0, 0, 0.44);
+    border-radius: 3px;
+    cursor: pointer;
+}
+.option {
+    width: 423px;
+    margin-left: 5px;
+    max-height: 110px;
+    overflow-y: auto;
+}
+.optionBox {
+    width: calc(100% - 5px);
+    margin-left: 5px;
+    cursor: pointer;
+}
+.optionBox:hover {
+    background-color: #02a0a0;
+}
+.highlight {
+    font-weight: bold;
+}
