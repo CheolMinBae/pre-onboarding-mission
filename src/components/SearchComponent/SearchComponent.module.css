@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+}
+
+.searchWrapper {
+  display: inline-flex;
+  justify-content: space-between;
+  width: 350px;
+  padding: 0.5rem 1rem;
+  border-radius: 24px;
+  border: 2px solid #000;
+}
