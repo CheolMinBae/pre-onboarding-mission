@@ -1,5 +1,6 @@
 .header {
-    width: 40%;
+    width: 100%;
+    max-width: 460px;
     height: 10px;
     margin: 10px 0;
     background-color: #000;
@@ -34,13 +35,17 @@
     cursor: pointer;
 }
 .option {
-    width: 423px;
-    margin-left: 5px;
+    width: 100%;
+    min-width: 250px;
+    max-width: 423px;
     max-height: 110px;
+    margin-left: 5px;
     overflow-y: auto;
+    overflow-x: hidden;
 }
 .optionBox {
     width: calc(100% - 10px);
+    min-width: 250px;
     margin-left: 5px;
     padding-left: 5px;
     cursor: pointer;
