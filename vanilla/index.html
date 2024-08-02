@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>검색</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <h1>검색</h1>
+
+    <form class="search-form">
+      <label for="searchInput" class="a11y-hidden">검색어</label>
+      <input
+        type="text"
+        id="searchInput"
+        name="choice"
+        list="lists"
+        autocomplete="off"
+      />
+
+      <div class="lists"></div>
+
+      <button type="submit" class="search-button">
+        <img src="./img/search.svg" alt="검색" />
+      </button>
+    </form>
+
+    <div class="result"></div>
+
+    <script type="module" src="data.js"></script>
+    <script type="module" src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,112 @@
+ul,
+li,
+p {
+  padding: 0;
+  margin: 0;
+}
+
+button {
+  cursor: pointer;
+}
+ul,
+li {
+  list-style: none;
+}
+
+html {
+  font-size: 62.5%;
+}
+body {
+  font-size: 1.6rem;
+}
+.a11y-hidden {
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+}
+
+.search-form {
+  display: flex;
+  gap: 0.4rem;
+  position: relative;
+}
+
+input#searchInput {
+  width: 24rem;
+  height: 3.2rem;
+  padding: 0;
+  box-sizing: border-box;
+  border: 1px solid #666;
+  border-radius: 0.4rem;
+  padding: 0 0.5em;
+  transition: all 0.3s;
+}
+
+.lists {
+  width: 24rem;
+  position: absolute;
+  top: 3.2rem;
+  z-index: 10;
+}
+.lists > div {
+  max-height: 24rem;
+  overflow-y: scroll;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  box-sizing: border-box;
+  border-radius: 0.4rem;
+  padding: 0.4rem;
+}
+.lists p {
+  padding: 1rem 1rem 0.5rem;
+  font-size: 0.8em;
+  color: #999;
+  font-weight: bold;
+}
+.lists button {
+  display: block;
+  background: none;
+  width: 100%;
+  border: 0;
+  text-align: left;
+  padding: 0.5em 1.6rem;
+  border-radius: 0.4rem;
+}
+
+.lists button:hover {
+  background-color: rgba(65, 105, 225, 0.1);
+}
+.search-button {
+  background-color: rgba(65, 105, 225, 0.8);
+  border: 1px solid transparent;
+  box-sizing: border-box;
+  border-radius: 0.4rem;
+  padding: 0.5rem;
+  transition: all 0.3s;
+
+  img {
+    width: 2rem;
+    height: 2rem;
+    display: block;
+  }
+}
+
+.result {
+  padding: 2rem 0.4rem;
+}
+
+/* focus */
+.search-button:focus-visible,
+input#searchInput:focus-visible {
+  outline: 2px solid rgba(65, 105, 225, 0.2);
+  border-color: royalblue;
+}
+.lists button:focus-visible {
+  background-color: rgba(65, 105, 225, 0.1);
+  outline: 1px solid royalblue;
+}
