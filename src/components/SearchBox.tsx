@@ -1,15 +1,14 @@
-import { useState } from "react";
+interface SearchBoxProps {
+  value: string;
+  onChange: (value: string) => void;
+}
 
-function SearchBox() {
-  const [keyWord, setKeyWord] = useState<string>('');
-  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setKeyWord(e.target.value);
-  }
+function SearchBox({ value, onChange }: SearchBoxProps) {
   return (
     <input
       type="text"
-      value={keyWord}
-      onChange={handleSearch}
+      value={value}
+      onChange={(e) => onChange(e.target.value)}
     />
   )
 }
