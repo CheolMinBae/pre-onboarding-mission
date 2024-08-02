@@ -1,0 +1,35 @@
+.container {
+  position: relative;
+}
+
+.list-container {
+  position: absolute;
+  display: none;
+  left: 0;
+  top: 30px;
+
+  height: 300px;
+  overflow-y: scroll;
+
+  border: 1px solid black;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+li {
+  padding: 0.25rem;
+}
+
+.list > :first-child {
+  background: black;
+  color: white;
+}
+
+.list > :not(:first-child):hover {
+  background-color: rgb(233, 233, 233);
+  cursor: pointer;
+}
