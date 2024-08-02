@@ -1,0 +1,22 @@
+.container {
+  overflow-y: scroll;
+  width: calc(350px - 2.25rem);
+  height: 200px;
+  background: #f1f1f1;
+  cursor: default;
+}
+
+.title {
+  margin: 1.25em 1rem 0.125em;
+  font-size: 1.125rem;
+}
+
+.item {
+  padding: 0.25em 1em;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.item:hover {
+  background-color: #ddd;
+}

@@ -1,5 +1,7 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
-import { dummy } from "../mocks/dummy";
+import { dummy } from "../../mocks/dummy";
+
+import styles from './SearchResults.module.css';
 
 export interface Results {
   description: string;
@@ -50,16 +52,21 @@ function SearchResults({ keyWord }: SearchResultsProps) {
   if (!debouncedKeyword) return null;
 
   return (
-    <>
+    <div className={styles.container}>
       {Object.entries(groupedItems).map(([type, typeItems]) => (
         <div key={type}>
-          <h3>{type}</h3>
+          <h3 className={styles.title}>{type}</h3>
           {typeItems.map((item) => (
-            <div key={item.key}>{highlightText(item.description)}</div>
+            <div
+             key={item.key}
+             className={styles.item}
+            >
+              {highlightText(item.description)}
+            </div>
           ))}
         </div>
       ))}
-    </>
+    </div>
   );
 }
 
