@@ -4,6 +4,7 @@ import { groupByType } from "../util/group";
 
 const SearchForm = () => {
   const [inputText, setInputText] = useState("");
+  const [isFocus, setIsFocus] = useState(false);
 
   const dropdownBox = () => {
     const groupedItems = groupByType(dummy);
@@ -23,7 +24,7 @@ const SearchForm = () => {
             >
               <p>
                 {parts.map((part, i) =>
-                  regex.test(part) ? <b key={i}>{part}</b> : part
+                  inputText && regex.test(part) ? <b key={i}>{part}</b> : part
                 )}
               </p>
             </div>
@@ -38,16 +39,18 @@ const SearchForm = () => {
   };
 
   return (
-    <div className="flex flex-row w-full gap-2">
-      <div className="w-1/2">
+    <div className="flex flex-row w-full gap-2 justify-center items-center relative">
+      <div className="w-52">
         <input
           type="text"
           className="input input-bordered input-sm focus-within:outline-none w-full"
           value={inputText}
           onChange={(e) => setInputText(e.target.value)}
+          onFocus={() => setIsFocus(true)}
+          onBlur={() => setTimeout(() => setIsFocus(false), 100)} // 2번
         />
-        {!!inputText.length && (
-          <div className="h-28 overflow-scroll border-[1px] rounded-md mt-1 ">
+        {isFocus && (
+          <div className="w-52 h-28 overflow-scroll border-[1px] rounded-md mt-1 absolute">
             {dropdownBox()}
           </div>
         )}
