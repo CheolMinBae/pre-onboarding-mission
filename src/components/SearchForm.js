@@ -19,7 +19,7 @@ const SearchForm = () => {
             <div
               key={index}
               className="flex flex-row w-full px-2"
-              onClick={() => setInputText(parts)}
+              onClick={() => setInputText(item.description)}
             >
               <p>
                 {parts.map((part, i) =>
