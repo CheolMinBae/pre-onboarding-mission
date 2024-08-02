@@ -6,7 +6,8 @@
   position: absolute;
   display: none;
   left: 0;
-  top: 30px;
+  top: 100%;
+  margin-top: 0.5rem;
 
   height: 300px;
   overflow-y: scroll;
@@ -32,4 +33,17 @@ li {
 .list > :not(:first-child):hover {
   background-color: rgb(233, 233, 233);
   cursor: pointer;
+}
+
+.input {
+  padding: 0.5rem 0.5rem;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+}
+
+button {
+  margin-left: 1rem;
 }
