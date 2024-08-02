@@ -1,0 +1,38 @@
+.input {
+    width: 200px;
+    height: 25px;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+.options {
+    width: 200px;
+    height: 100px;
+    overflow: scroll;
+    border: 1px solid black;
+}
+
+.type {
+    background-color: mediumblue;
+    color: white;
+}
+
+.item:hover {
+    background-color: dodgerblue;
+}
+
+.row {
+    padding: 5px;
+}
+
+.btn {
+    border-radius: 100px;
+    height: 30px;
+    margin: 0 0 0 5px;
+    background-color: greenyellow;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: rgb(129, 198, 25);
+}
