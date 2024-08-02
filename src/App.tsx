@@ -8,10 +8,12 @@ function App() {
   const [query, setQuery] = useState("");
 
   return (
-    <article id='app-container'>
-      <SearchForm query={query} setQuery={setQuery} />
-      <SearchResult query={query} />
-    </article>
+    <main id="app-container">
+      <article>
+        <SearchForm query={query} setQuery={setQuery} />
+        <SearchResult query={query} />
+      </article>
+    </main>
   );
 }
 
