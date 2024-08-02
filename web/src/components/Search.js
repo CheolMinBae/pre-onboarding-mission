@@ -4,7 +4,7 @@ import {dummy} from "../data/data";
 
 const Search = () => {
     const [searchValue, setSearchValue] = React.useState('');
-    const uniqueTypes = [... new Set(dummy.map(item => item.type))];
+    const uniqueTypes = [...new Set(dummy.map(item => item.type))];
     const changeSearchValue = (value) => {
         const escapeString = escapeRegExp(value);
         setSearchValue(escapeString);
@@ -14,7 +14,7 @@ const Search = () => {
         const parts = text && text.split(new RegExp(`(${highlight})`, 'gi'));
         return parts.map((item, index) =>
             item.toLowerCase() === highlight.toLowerCase() ? (
-                <span key={index} className={classes.highlight}> {item} </span>
+                <span key={index} className={classes.highlight}>{item}</span>
             ) : (
                 item
             ));
@@ -45,15 +45,15 @@ const Search = () => {
             </div>
             <div className={classes.option}>
                 {searchValue && uniqueTypes.map((type, index) => (
-                    <>
-                        <div key={index} className={classes.optionTitle}>{type}</div>
+                    <div key={index}>
+                        <div className={classes.optionTitle}>{type}</div>
                         {dummy.filter((item) => item.type === type).map(item => (
                             <div key={item.key} className={classes.optionBox}
                                  onClick={() => changeSearchValue(item.description)}>
                                 {highlightText(item.description, searchValue)}
                             </div>
                         ))}
-                    </>
+                    </div>
                 ))}
             </div>
 
