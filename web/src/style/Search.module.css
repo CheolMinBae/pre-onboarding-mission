@@ -40,12 +40,22 @@
     overflow-y: auto;
 }
 .optionBox {
-    width: calc(100% - 5px);
+    width: calc(100% - 10px);
     margin-left: 5px;
+    padding-left: 5px;
     cursor: pointer;
 }
 .optionBox:hover {
     background-color: #02a0a0;
+}
+.optionTitle {
+    width: calc(100% - 25px);
+    margin-left: 5px;
+    background-color: #b095ed;
+    padding-left: 20px;
+    color: white;
+    font-weight: bold;
+    cursor: default;
 }
 .highlight {
     font-weight: bold;
