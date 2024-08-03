@@ -1,0 +1,53 @@
+.root{
+    width : 100%;
+    height : 100vh;
+}
+
+.main{
+
+}
+.layout{
+    width : 25rem;
+    height : 10rem;
+    display : flex;
+    flex-direction : row;
+}
+
+.search_bar{
+    border : 1px solid blue;
+    border-radius : 5px;
+    height : 2rem;
+    width : 20rem;
+    display : block;
+}
+.search_bar:focus{
+    outline : 1px solid blue;
+    border-radius : 5px;
+}
+
+.question{
+    width : 2rem;
+    height : 2rem;
+    background-color: chocolate;
+    margin-left : 2rem;
+    cursor: pointer;
+    color : white;
+    font : 20px bold;
+    display : flex;
+    justify-content: center;
+    align-items : center;
+}
+
+
+
+.search_list{
+    display : none;
+    height : 100%;
+    border : 1px solid gray;
+    width : 100%;
+    overflow-y : scroll
+}
+
+.highlight{
+    font-weight:bold;
+}
