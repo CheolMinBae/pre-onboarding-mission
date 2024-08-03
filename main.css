@@ -7,8 +7,8 @@
 
 }
 .layout{
-    width : 20rem;
-    height : 2rem;
+    width : 25rem;
+    height : 10rem;
     display : flex;
     flex-direction : row;
 }
@@ -16,6 +16,8 @@
 .search_bar{
     border : 1px solid blue;
     border-radius : 5px;
+    height : 2rem;
+    width : 20rem;
     display : block;
 }
 .search_bar:focus{
@@ -31,3 +33,10 @@
     cursor: pointer;
 }
 
+.search_list{
+    display : none;
+    height : 100%;
+    border : 1px solid gray;
+    width : 100%;
+    overflow-y : scroll
+}
