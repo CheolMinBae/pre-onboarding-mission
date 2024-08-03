@@ -1,19 +1,26 @@
-import { KeywordDataType } from "../store/data.type"
+import type { GroupedSearchResults, KeywordType } from "../store/data.type"
 
 interface ParamsType {
-  data: KeywordDataType[]
+  data: GroupedSearchResults
 }
 
 export const SearchResult = ({ data }: ParamsType) => {
   return (
-    <ul className="result">
-      {data.map(({ description, key, type }) => (
-        <li key={key}>
-          <p>{type}</p>
-          <p>{description}</p>
-        </li>
-      ))}
-    </ul>
+    <div>
+      {Object.keys(data).map((type) => {
+        const keywordType = type as KeywordType;
+        return (
+          <div key={keywordType}>
+            <h3>{keywordType}</h3>
+            <ul>
+              {data[keywordType]?.map((item) => (
+                <li key={item.key}>{item.description}</li>
+              ))}
+            </ul>
+          </div>
+        );
+      })}
+    </div>
   )
 }
 

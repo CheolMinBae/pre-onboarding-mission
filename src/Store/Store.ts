@@ -1,14 +1,10 @@
 import { data } from "./data.ts";
-import { DataType, KeywordDataType } from "./data.type.ts";
-
-
+import type { DataType, GroupedSearchResults, KeywordType } from "./data.type.ts";
 
 const tag = "[Store]";
 
 class Store {
   data: DataType;
-  searchKeyword: string;
-  searchResult: KeywordDataType[];
 
   constructor(data: DataType) {
     console.log(tag, "constructor");
@@ -16,16 +12,23 @@ class Store {
     if (!data) throw "no storage";
 
     this.data = data;
-
-    this.searchKeyword = "";
-    this.searchResult = [];
   }
 
   search(keyword: string) {
-    this.searchKeyword = keyword;
-    return this.data.keywordData.filter((product) =>
-      product.description.match(new RegExp(keyword, "i"))
-    );
+    const lowerKeyword = keyword.toLowerCase()
+    const groupedResults: GroupedSearchResults = {};
+
+    data.keywordData.forEach((item) => {
+      if (item.description.toLowerCase().indexOf(lowerKeyword) > -1) {
+        const type = item.type as KeywordType;
+        if (!groupedResults[type]) {
+          groupedResults[type] = [];
+        }
+        groupedResults[type]!.push(item);
+      }
+    });
+
+    return groupedResults;
   }
 }
 
