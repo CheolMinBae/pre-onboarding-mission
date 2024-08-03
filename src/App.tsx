@@ -6,19 +6,21 @@ import { SearchResult } from "./component/SearchResult";
 
 function App() {
   const [searhResult, setSearhResult] = useState<GroupedSearchResults>({});
+  const [searhKeyword, setSearhKeyword] = useState("")
 
   const handleChangeInput = (searchKeyword: string) => {
     if (searchKeyword.length <= 0) {
       setSearhResult({})
       return
     }
+    setSearhKeyword(searchKeyword)
     setSearhResult(store.search(searchKeyword));
   }
 
   return (
     <div>
       <SearchForm onChange={(value) => handleChangeInput(value)} />
-      <SearchResult data={searhResult} />
+      <SearchResult data={searhResult} keyword={searhKeyword} />
     </div>
   )
 }
