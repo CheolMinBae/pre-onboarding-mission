@@ -24,7 +24,7 @@ class Store {
   search(keyword: string) {
     this.searchKeyword = keyword;
     return this.data.keywordData.filter((product) =>
-      product.description.includes(keyword)
+      product.description.match(new RegExp(keyword, "i"))
     );
   }
 }
