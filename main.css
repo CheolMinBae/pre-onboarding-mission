@@ -31,7 +31,14 @@
     background-color: chocolate;
     margin-left : 2rem;
     cursor: pointer;
+    color : white;
+    font : 20px bold;
+    display : flex;
+    justify-content: center;
+    align-items : center;
 }
+
+
 
 .search_list{
     display : none;
