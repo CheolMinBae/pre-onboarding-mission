@@ -1,0 +1,9 @@
+#list {
+  width: 150px;
+  height: 100px;
+  overflow-y: scroll;
+}
+.group-title {
+  background-color: black;
+  color: white;
+}
