@@ -1,0 +1,62 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    height: 90vh;
+}
+#companySearch {
+    outline: 0;
+    font-size: 20px;
+    padding: 6px 12px;
+    border-radius: 25px;
+    border-width: 0.5px;
+}
+
+#searchBtn {
+    width: 36px;
+    height: 36px;
+    border-width: 0px;
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAr2HX0VI3QOBAUdApj2HrvHZMhp0xpovcCw&s');
+    background-size: contain;
+    cursor: pointer;
+}
+
+#searchModal{
+    position: absolute;
+    width: 268px;
+    height: 140px;
+    border-radius: 4px;
+    border: 1px solid black;
+    margin-left: 16px;
+    margin-top: 4px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scrollbar-width: none;
+}
+
+.appear{
+    display: block;
+}
+
+.disappear{
+    display: none;
+}
+
+.searchList{
+    padding: 6px 8px;
+    cursor: pointer;
+}
+
+.searchList:hover{
+    background-color: rgb(195, 203, 216);
+}
+
+.reversal{
+    
+    padding: 6px 8px;
+    padding-left: 12px;
+    background-color: blue;
+    color: white;
+    cursor: default;
+}
