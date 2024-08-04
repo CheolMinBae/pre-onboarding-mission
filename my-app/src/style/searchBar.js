@@ -23,10 +23,18 @@ export const DataListBox = styled.div`
   justify-content: flex-start;
   width: 100%;
   ul {
-    font-size: 24px;
+    width: 90%;
     margin-bottom: 5px;
+    font-size: 20px;
+    div {
+      background-color: #3496a7;
+      padding: 5px;
+    }
   }
   li {
     font-size: 20px;
   }
+
+  height: 200px;
+  overflow-y: scroll;
 `;
