@@ -28,6 +28,21 @@ class Store {
       }
     });
 
+
+
+    return groupedResults;
+  }
+
+  testSearch() {
+    const groupedResults: GroupedSearchResults = {};
+    data.keywordData.forEach((item) => {
+      const type = item.type as KeywordType;
+      if (!groupedResults[type]) {
+        groupedResults[type] = [];
+      }
+      groupedResults[type]!.push(item);
+    }
+    );
     return groupedResults;
   }
 }

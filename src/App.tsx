@@ -9,18 +9,19 @@ function App() {
   const [searhKeyword, setSearhKeyword] = useState("")
 
   const handleChangeInput = (searchKeyword: string) => {
+    setSearhKeyword(searchKeyword)
     if (searchKeyword.length <= 0) {
       setSearhResult({})
       return
     }
-    setSearhKeyword(searchKeyword)
-    setSearhResult(store.search(searchKeyword));
+    setSearhResult(store.testSearch())
+    // setSearhResult(store.search(searchKeyword));
   }
 
   return (
     <div>
       <SearchForm onChange={(value) => handleChangeInput(value)} />
-      <SearchResult data={searhResult} keyword={searhKeyword} />
+      {searhKeyword && <SearchResult data={searhResult} keyword={searhKeyword} />}
     </div>
   )
 }

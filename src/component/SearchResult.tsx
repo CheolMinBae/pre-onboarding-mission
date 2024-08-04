@@ -1,5 +1,6 @@
 import type { GroupedSearchResults, KeywordType } from "../store/data.type"
 import { highlightText } from "../utils/textUtil";
+import styles from "./SearchResult.module.css"
 
 interface ParamsType {
   data: GroupedSearchResults
@@ -8,18 +9,17 @@ interface ParamsType {
 
 export const SearchResult = ({ data, keyword }: ParamsType) => {
   return (
-    <div>
+    <div className={styles["result-box"]}>
       {Object.keys(data).map((type) => {
         const keywordType = type as KeywordType;
         return (
-          <div key={keywordType}>
-            <h3>{keywordType}</h3>
-            <ul>
-              {data[keywordType]?.map((item) => (
-                <li key={item.key}>{highlightText(item.description, keyword)}</li>
-              ))}
-            </ul>
-          </div>
+          <ul className={styles["result-section"]}>
+            <li className={styles.category}>{keywordType}</li>
+            {data[keywordType]?.map((item) => (
+              <li key={item.key} className={styles.list}>{highlightText(item.description, keyword)}</li>
+            ))}
+          </ul>
+
         );
       })}
     </div>

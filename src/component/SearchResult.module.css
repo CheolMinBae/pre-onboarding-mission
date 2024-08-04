@@ -1,0 +1,36 @@
+.result-box {
+  box-sizing: border-box;
+  width: 300px;
+  height: 120px;
+  overflow: auto;
+  border: solid 1px black;
+  margin-top: 1px;
+  border-radius: 2px;
+}
+
+.result-section {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    padding-left: 0.5rem;
+    padding-top: 1px;
+    padding-bottom: 3px;
+  }
+}
+
+.category {
+  background-color: rgb(102, 104, 243);
+  color: white;
+}
+
+.list {
+  b {
+    color: rgb(102, 104, 243);
+  }
+
+  &:hover {
+    background-color: skyblue;
+  }
+}
