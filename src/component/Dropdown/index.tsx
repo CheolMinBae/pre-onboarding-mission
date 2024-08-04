@@ -15,10 +15,10 @@ const Dropdown = ({ value, data }: DropdownProps) => {
   return (
     <DropdownContainer>
       {data.map((d, idx) => (
-        <>
-          {indexMap[idx] && <SubTitle key={indexMap[idx]} type={indexMap[idx]} />}
-          <Item value={value} key={idx} piece={d} />
-        </>
+        <div key={idx}>
+          {indexMap[idx] && <SubTitle type={indexMap[idx]} />}
+          <Item value={value} piece={d} />
+        </div>
       ))}
     </DropdownContainer>
   );
