@@ -1,0 +1,1 @@
+export type onChange = (value: string) => void 
