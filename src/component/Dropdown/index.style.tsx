@@ -9,6 +9,10 @@ export const SubTitleContainer = styled.div`
 `;
 
 export const ItemContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
   width: 100%;
   height: fit-content;
 
@@ -24,7 +28,7 @@ export const DropdownContainer = styled.div`
   position: absolute;
   top: 40px;
 
-  width: 200px;
+  width: 250px;
   height: 300px;
 
   border: solid 1px #383838;
@@ -33,13 +37,13 @@ export const DropdownContainer = styled.div`
   overflow-x: hidden;
   overflow-y: scroll;
 
-  > * {
+  > div > * {
     padding: 6px 14px;
 
     box-sizing: border-box;
   }
 
-  > ${SubTitleContainer}:nth-of-type(1) {
+  > div > ${SubTitleContainer}:nth-of-type(1) {
     margin-top: 0;
   }
 `;
