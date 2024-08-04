@@ -2,15 +2,20 @@ import { dummy } from "../../data";
 import { v4 as uuidv4 } from "uuid";
 import useDebounce from "../hooks/useDebounce";
 import styles from "./search_result.module.scss";
+import { ISearchProps } from "../types/search.type";
 
-export default function SearchResult(props: { query: string }) {
+export default function SearchResult(props: ISearchProps) {
   const dummyTypes = [...new Set(dummy.map((dummyItem) => dummyItem.type))];
   const debouncedQuery = useDebounce(props.query);
 
   const getHighlightKeyword = (dummyDescription: string) => {
     if (!debouncedQuery.trim()) return <span>{dummyDescription}</span>;
 
-    const regexp = new RegExp(`(${debouncedQuery})`, "gi");
+    const regexp = new RegExp(
+      `(${debouncedQuery.replace(/(\(|\))/g, "\\$1")})`,
+      "gi"
+    );
+
     const keywordMatchResultArray = dummyDescription.split(regexp);
 
     return keywordMatchResultArray.map((keyword) =>
@@ -22,11 +27,33 @@ export default function SearchResult(props: { query: string }) {
     );
   };
 
+  const liMouseOverHandler = (e: React.MouseEvent<HTMLLIElement>) => {
+    const { index, name } = e.currentTarget.dataset;
+
+    if (index === undefined || name === undefined) return;
+    if (+index === props.focusedListIndex) return;
+
+    props.setFocusedListIndex(+index);
+    props.setQuery(name);
+  };
+
   const dummyItemLiElement = (dummyTypeName: string) => {
+    const focusedLiClassName = (dummyItemIndex: number) => {
+      return dummyItemIndex === props.focusedListIndex
+        ? styles.result_li_focused
+        : "";
+    };
+
     return dummy.map(
-      (dummyItem) =>
+      (dummyItem, dummyItemIndex) =>
         dummyItem.type === dummyTypeName && (
-          <li key={uuidv4()} className={styles.result_li}>
+          <li
+            key={uuidv4()}
+            onMouseOver={(e) => liMouseOverHandler(e)}
+            data-index={dummyItemIndex}
+            data-name={dummyItem.description}
+            className={focusedLiClassName(dummyItemIndex)}
+          >
             {getHighlightKeyword(dummyItem.description)}
           </li>
         )

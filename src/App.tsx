@@ -6,12 +6,23 @@ import "./styles/app.scss";
 
 function App() {
   const [query, setQuery] = useState("");
+  const [focusedListIndex, setFocusedListIndex] = useState(-1);
 
   return (
-    <main id="app-container">
+    <main id='app-container'>
       <article>
-        <SearchForm query={query} setQuery={setQuery} />
-        <SearchResult query={query} />
+        <SearchForm
+          query={query}
+          setQuery={setQuery}
+          focusedListIndex={focusedListIndex}
+          setFocusedListIndex={setFocusedListIndex}
+        />
+        <SearchResult
+          query={query}
+          setQuery={setQuery}
+          focusedListIndex={focusedListIndex}
+          setFocusedListIndex={setFocusedListIndex}
+        />
       </article>
     </main>
   );

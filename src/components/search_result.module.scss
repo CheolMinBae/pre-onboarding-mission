@@ -34,10 +34,11 @@
     color: white;
   }
 
-  .result_li {
+  > li {
     padding: 0 1rem;
-    &:hover {
-      background-color: lightgray;
-    }
+  }
+
+  .result_li_focused {
+    background-color: lightgray;
   }
 }
