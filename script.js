@@ -1,6 +1,24 @@
 import { dummy } from "./data.js";
 
-createListHTML(dummy, document.querySelector("#list"));
+const $input = document.querySelector("input");
+const $list = document.querySelector("#list");
+
+$input.oninput = (e) => {
+  toggleList(true);
+};
+
+createListHTML(dummy, $list);
+toggleList(false);
+
+document.querySelector("body").addEventListener("click", (e) => {
+  if (!$list.contains(e.target)) {
+    toggleList(false);
+  }
+});
+
+function toggleList(state) {
+  $list.style.display = state ? "block" : "none";
+}
 
 function createListHTML(data, selector) {
   const types = new Set([]);
