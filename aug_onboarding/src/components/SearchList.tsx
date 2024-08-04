@@ -1,6 +1,6 @@
 import {dummy} from "@src/datas/data.js"
 import SearchListItem, {IDummy} from "@src/components/SearchListItem.tsx";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import styled from "styled-components";
 
 interface ISearchList {
@@ -8,12 +8,24 @@ interface ISearchList {
 }
 
 const SearchList = ({value}: ISearchList) => {
-    const [data,] = useState<IDummy[]>(dummy)
+    const [data, setData] = useState<IDummy[]>([]);
+
+    useEffect(() => {
+        const types = ["COMPANY", "PEOPLE", "JOB"];
+        setData(types.flatMap(v => [
+            { key: v, type: v, description: v },
+            ...dummy.filter(item => item.type === v) as IDummy[] // 타입 캐스팅
+        ]));
+
+    }, []);
 
     return (
         <Container>
-            <ItemTop>Company</ItemTop>
-            {data && data.map((v) => (<SearchListItem key={v.key} item={v} value={value} />))}
+            {data && data.map((v) => (
+                (v.description === "COMPANY" || v.description === "PEOPLE" || v.description === "JOB") ?
+                    <ItemTop key={v.key}>{v.description}</ItemTop> :
+                    <SearchListItem key={v.key} item={v} value={value} />
+            ))}
         </Container>
     )
 };
