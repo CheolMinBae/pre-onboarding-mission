@@ -20,7 +20,6 @@ export default function SearchResult(props: ISearchProps) {
       `(${debouncedQuery.replace(/(\(|\))/g, "\\$1")})`,
       "gi"
     );
-
     const keywordMatchResultArray = dummyDescription.split(regexp);
 
     return keywordMatchResultArray.map((keyword) =>
