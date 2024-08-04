@@ -1,7 +1,17 @@
+html,
+body {
+  height: 100vh;
+}
+
 #list {
   width: 150px;
   height: 100px;
   overflow-y: scroll;
+  border: 1px solid gray;
+}
+
+.item:hover {
+  background-color: #ccc;
 }
 .group-title {
   background-color: black;
