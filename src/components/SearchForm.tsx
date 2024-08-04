@@ -1,7 +1,10 @@
+// data
+import { dummy } from "../../data";
+// types
 import { ISearchProps } from "../types/search.type";
+// styles
 import { IoIosSearch } from "react-icons/io";
 import styles from "./search_form.module.scss";
-import { dummy } from "../../data";
 
 const ARROW_UP = "ArrowUp";
 const ARROW_DOWN = "ArrowDown";
