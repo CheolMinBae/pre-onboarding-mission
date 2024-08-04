@@ -1,0 +1,44 @@
+// container
+.result_section {
+  width: $search-width;
+  height: 10rem;
+  overflow-y: auto;
+  border: 1px solid;
+  border-radius: 10px;
+  margin-top: 0.5rem;
+  border: 1px solid grey;
+}
+
+// scrollbar
+.result_section::-webkit-scrollbar {
+  width: 10px;
+}
+.result_section::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-clip: padding-box;
+  border: 2px solid transparent;
+  background-color: grey;
+}
+.result_section::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: transparent;
+}
+
+// list
+.result_ul {
+  line-height: 200%;
+
+  .type_name {
+    padding: 0 1rem;
+    background-color: $main-blue-color;
+    color: white;
+  }
+
+  > li {
+    padding: 0 1rem;
+  }
+
+  .result_li_focused {
+    background-color: lightgray;
+  }
+}

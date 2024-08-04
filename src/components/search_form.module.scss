@@ -1,0 +1,32 @@
+.form {
+  margin-top: 25rem;
+  display: flex;
+}
+
+.input {
+  padding: 1rem;
+  width: $search-width;
+  height: $search-height;
+  border-radius: 10px;
+  outline: 1px solid grey;
+
+  &:focus {
+    outline: 2px solid $main-blue-color;
+  }
+}
+
+.button_wrapper {
+  margin: 0 auto;
+  margin-left: 0.5rem;
+}
+
+.button {
+  margin: 0 auto;
+  width: $search-height;
+  height: $search-height;
+  background-color: $main-blue-color;
+  border-radius: 50%;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
