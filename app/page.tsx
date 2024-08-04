@@ -54,10 +54,10 @@ export default function Home() {
         />
 
         {search !== '' && (
-          <div className="overflow-y-auto max-h-48 border border-gray-300 p-2 bg-white">
+          <div className="overflow-y-auto max-h-48 border border-gray-300 bg-white">
             {Object.keys(groupedOptions).map((type) => (
               <div key={type}>
-                <h2 className="text-lg font-semibold">{type}</h2>
+                <h2 className="text-lg font-semibold bg-blue-400">{type}</h2>
                 {groupedOptions[type].map((option, index) => {
                   const isHighlighted = option.description
                     .toLowerCase()
@@ -65,7 +65,7 @@ export default function Home() {
                   return (
                     <p
                       key={index}
-                      className={`p-1 ${isHighlighted ? 'font-bold' : ''}`}
+                      className={`p-1 hover:bg-blue-300 cursor-pointer ${isHighlighted ? 'font-bold' : ''}`}
                     >
                       {highlightText(option.description, search)}
                     </p>
