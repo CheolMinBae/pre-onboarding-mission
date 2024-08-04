@@ -1,19 +1,21 @@
 import { useState } from "react";
 import { dummy } from "../data/data.js";
+import useDebounce from "../hook/useDebounce.js";
 
 const SearchBox = () => {
   const [searchText, setSearchText] = useState("");
+  const keyword = useDebounce(searchText, 500);
   const categoryList = [...new Set(dummy.map((data) => data.type))];
 
   const highlightText = (description) => {
-    if (searchText === "") return description;
+    if (keyword === "") return description;
 
     // g: 글로벌 검색 i: 대소문자 구분 없이 검색
     // split seperator에 ()를 포함하는 정규표현식이 들어가면 해당 text포함하여 나눈 배열 반환
-    const parts = description.split(new RegExp(`(${searchText})`, "gi"));
+    const parts = description.split(new RegExp(`(${keyword})`, "gi"));
 
     return parts.map((part, index) =>
-      part.toLowerCase() === searchText.toLowerCase() ? (
+      part.toLowerCase() === keyword.toLowerCase() ? (
         <strong key={index}>{part}</strong>
       ) : (
         part
