@@ -15,7 +15,7 @@ const SearchLayout = () => {
       <S.SearchWrapper>
         <S.SearchInputWrapper>
           <InputBox value={value} onChange={inputHandler} />
-          <Dropdown data={dummy} />
+          {value.length > 0 && <Dropdown value={value} data={dummy} />}
         </S.SearchInputWrapper>
         <SearchButton />
       </S.SearchWrapper>

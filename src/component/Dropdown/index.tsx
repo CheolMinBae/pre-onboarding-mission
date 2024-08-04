@@ -5,10 +5,11 @@ import { getTypeFirstIndex } from '@util/data';
 import SubTitle from './SubTitle';
 
 interface DropdownProps {
+  value: string;
   data: Array<DummyType>;
 }
 
-const Dropdown = ({ data }: DropdownProps) => {
+const Dropdown = ({ value, data }: DropdownProps) => {
   const indexMap = getTypeFirstIndex(data);
 
   return (
@@ -16,7 +17,7 @@ const Dropdown = ({ data }: DropdownProps) => {
       {data.map((d, idx) => (
         <>
           {indexMap[idx] && <SubTitle key={indexMap[idx]} type={indexMap[idx]} />}
-          <Item key={idx} piece={d} />
+          <Item value={value} key={idx} piece={d} />
         </>
       ))}
     </DropdownContainer>

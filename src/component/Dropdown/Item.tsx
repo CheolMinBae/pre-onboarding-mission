@@ -2,10 +2,11 @@ import { DummyType } from '@type/data';
 import { ItemContainer } from './index.style';
 
 interface ItemProps {
+  value: string;
   piece: DummyType;
 }
 
-const Item = ({ piece }: ItemProps) => {
+const Item = ({ value, piece }: ItemProps) => {
   return <ItemContainer>{piece.description}</ItemContainer>;
 };
 
