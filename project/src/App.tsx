@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import GlobalStyle from './styles/globals';
-import { SearchForm, SearchBox, RecommendList } from './styles/app';
-import useDebounce from './hooks/useDebounce';
-import SearchHighlight from './components/SearchHighlight';
-import SearchButton from './components/SearchButton';
+import GlobalStyle from '@/styles/globals';
+import { SearchForm, SearchBox, RecommendList } from '@/styles/app';
+import useDebounce from '@/hooks/useDebounce';
+import SearchHighlight from '@/components/SearchHighlight';
+import SearchButton from '@/components/SearchButton';
 import { dummy } from './data';
 
 interface SearchData {
@@ -56,7 +56,7 @@ const App = () => {
                   <dt>{type}</dt>
                   {groupedData[type].map((el: SearchData) => (
                     <dd key={el.key} data-value={el.key}>
-                      <SearchHighlight content={el.description} query={debouncedQuery} clickHandler={selectRecommend} />
+                      <SearchHighlight content={el.description} query={debouncedQuery} select={selectRecommend} />
                     </dd>
                   ))}
                 </div>

@@ -1,7 +1,11 @@
 import styled from 'styled-components';
-import { ReactComponent as IconSearch } from '../assets/iconSearch.svg';
+import { ReactComponent as IconSearch } from '@/assets/iconSearch.svg';
 
-const SearchButton = ({ search }: { search: () => void }) => {
+interface ButtonProps {
+  search: () => void;
+}
+
+const SearchButton = ({ search }: ButtonProps) => {
   return (
     <ButtonWrapper type="button" onClick={search}>
       <IconSearch width={50} height={50} />

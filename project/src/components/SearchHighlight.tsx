@@ -3,23 +3,23 @@ import styled from 'styled-components';
 interface HighlightProps {
   content: string;
   query: string;
-  clickHandler: (event: React.MouseEvent<HTMLAnchorElement>) => void;
+  select: (event: React.MouseEvent<HTMLAnchorElement>) => void;
 }
 
-const SearchHighlight = ({ content, query, clickHandler }: HighlightProps) => {
+const SearchHighlight = ({ content, query, select }: HighlightProps) => {
   const escapedQuery = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   const splitting = content.split(new RegExp(`(${escapedQuery})`, 'gi'));
 
   return (
-    <ListAnchor onClick={clickHandler}>
+    <AnchorWrapper onClick={select}>
       {splitting.map((char: string, idx: number) =>
         char.toLowerCase() === query.toLowerCase() ? <Highlighting key={idx}>{char}</Highlighting> : char
       )}
-    </ListAnchor>
+    </AnchorWrapper>
   );
 };
 
-const ListAnchor = styled.a`
+const AnchorWrapper = styled.a`
   display: block;
   padding: 10px;
   text-decoration: none;
