@@ -1,0 +1,21 @@
+.app {
+  text-align: center;
+}
+
+.app-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.input-area {
+  width: 30%;
+  & input {
+    width: 100%;
+    padding: 1vh;
+  }
+}
