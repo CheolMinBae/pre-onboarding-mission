@@ -1,12 +1,12 @@
 ul {
   width: 100%;
   list-style-type: none;
-  /* height: 100%; */
 }
 
 li {
   height: 20px;
 }
+
 .notAType:hover {
   background-color: lightblue;
   background-color: #e5e5f2;
