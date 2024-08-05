@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styled from 'styled-components';
-import GlobalStyle from './styles/globals';
-import { ReactComponent as IconSearch } from './assets/iconSearch.svg';
+import GlobalStyle from 'styles/globals';
+import { ReactComponent as IconSearch } from 'assets/iconSearch.svg';
 import { dummy } from './data';
 
 interface SearchData {
@@ -11,36 +11,40 @@ interface SearchData {
 }
 
 const App = () => {
-  const [inputValue, setInputValue] = useState('');
+  const [query, setQuery] = useState('');
 
   const changeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue(event.target.value);
+    setQuery(event.target.value);
   };
 
   const goSearch = () => {
-    console.log(inputValue);
+    console.log(query);
   };
 
   return (
     <>
-    <GlobalStyle />
-    <SearchForm>
-      <SearchArea>
-        <input type='text' onChange={changeInput}/>
-        {inputValue &&
-          <RecommendList>
-            {dummy.map((el: SearchData, idx: number) => {
-              return (
-                <li key={idx} value={el.key} data-type={el.type}>{el.description}</li>
-              )
-            })}
-          </RecommendList>
-        }
-      </SearchArea>
-      <SearchButton type='button' onClick={goSearch}><IconSearch width={50} height={50} /></SearchButton>
-    </SearchForm>
+      <GlobalStyle />
+      <SearchForm>
+        <SearchBox>
+          <input type="search" onChange={changeInput} />
+          {query && (
+            <RecommendList>
+              {dummy.map((el: SearchData, idx: number) => {
+                return (
+                  <li key={idx} value={el.key} data-type={el.type}>
+                    {el.description}
+                  </li>
+                );
+              })}
+            </RecommendList>
+          )}
+        </SearchBox>
+        <SearchButton type="button" onClick={goSearch}>
+          <IconSearch width={50} height={50} />
+        </SearchButton>
+      </SearchForm>
     </>
-  )
+  );
 };
 
 const SearchForm = styled.form`
@@ -49,7 +53,7 @@ const SearchForm = styled.form`
   gap: 20px;
 `;
 
-const SearchArea = styled.div`
+const SearchBox = styled.div`
   width: 250px;
   > input {
     box-sizing: border-box;
