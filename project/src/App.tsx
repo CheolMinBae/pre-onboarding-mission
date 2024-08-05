@@ -25,17 +25,19 @@ const App = () => {
     <>
     <GlobalStyle />
     <SearchForm>
-      <div>
+      <SearchArea>
         <input type='text' onChange={changeInput}/>
         {inputValue &&
           <RecommendList>
-            {dummy.map((el: SearchData) => {
-              return ( <li value={el.key} data-type={el.type}>{el.description}</li> )
+            {dummy.map((el: SearchData, idx: number) => {
+              return (
+                <li key={idx} value={el.key} data-type={el.type}>{el.description}</li>
+              )
             })}
           </RecommendList>
         }
-      </div>
-      <SearchButton type='button' onClick={goSearch}><IconSearch width={60} height={60} /></SearchButton>
+      </SearchArea>
+      <SearchButton type='button' onClick={goSearch}><IconSearch width={50} height={50} /></SearchButton>
     </SearchForm>
     </>
   )
@@ -44,23 +46,41 @@ const App = () => {
 const SearchForm = styled.form`
   display: flex;
   flex-direction: row;
+  gap: 20px;
+`;
+
+const SearchArea = styled.div`
+  width: 250px;
+  > input {
+    box-sizing: border-box;
+    width: 100%;
+    height: 50px;
+    padding: 0 15px 0 15px;
+  }
 `;
 
 const RecommendList = styled.ul`
+  width: 100%;
   list-style-type: none;
   max-height: 100px;
   overflow-y: scroll;
   padding: 0;
+  > li {
+    text-align: left;
+  }
 `;
 
 const SearchButton = styled.button`
-  height: fit-content;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 0;
   border: none;
   background: none;
+  cursor: pointer;
+  > svg {
+    pointer-events: none;
+  }
 `;
 
 export default App;
