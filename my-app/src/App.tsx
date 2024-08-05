@@ -1,5 +1,5 @@
 import "./index.css";
-import Search from './Search';
+import { Search } from './Search';
 
 function App() {
   return (
