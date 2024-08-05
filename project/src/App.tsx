@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import styled from 'styled-components';
-import GlobalStyle from 'styles/globals';
-import { ReactComponent as IconSearch } from 'assets/iconSearch.svg';
+import GlobalStyle from './styles/globals';
+import useDebounce from './hooks/useDebounce';
 import { dummy } from './data';
+import SearchHighlight from './components/SearchHighlight';
+import SearchButton from './components/SearchButton';
 
 interface SearchData {
   description: string;
@@ -13,11 +15,13 @@ interface SearchData {
 const App = () => {
   const [query, setQuery] = useState('');
 
+  const debouncedQuery = useDebounce(query, 200);
+
   const changeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(event.target.value);
   };
 
-  const goSearch = () => {
+  const printResult = () => {
     console.log(query);
   };
 
@@ -26,22 +30,20 @@ const App = () => {
       <GlobalStyle />
       <SearchForm>
         <SearchBox>
-          <input type="search" onChange={changeInput} />
+          <input type="search" value={query} onChange={changeInput} />
           {query && (
             <RecommendList>
               {dummy.map((el: SearchData, idx: number) => {
                 return (
-                  <li key={idx} value={el.key} data-type={el.type}>
-                    {el.description}
+                  <li key={idx} data-key={el.key} data-type={el.type}>
+                    <SearchHighlight content={el.description} query={debouncedQuery} />
                   </li>
                 );
               })}
             </RecommendList>
           )}
         </SearchBox>
-        <SearchButton type="button" onClick={goSearch}>
-          <IconSearch width={50} height={50} />
-        </SearchButton>
+        <SearchButton search={printResult} />
       </SearchForm>
     </>
   );
@@ -50,11 +52,13 @@ const App = () => {
 const SearchForm = styled.form`
   display: flex;
   flex-direction: row;
+  align-items: flex-start;
   gap: 20px;
 `;
 
 const SearchBox = styled.div`
   width: 250px;
+
   > input {
     box-sizing: border-box;
     width: 100%;
@@ -65,25 +69,14 @@ const SearchBox = styled.div`
 
 const RecommendList = styled.ul`
   width: 100%;
+  max-height: 200px;
   list-style-type: none;
-  max-height: 100px;
   overflow-y: scroll;
   padding: 0;
+
   > li {
     text-align: left;
-  }
-`;
-
-const SearchButton = styled.button`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0;
-  border: none;
-  background: none;
-  cursor: pointer;
-  > svg {
-    pointer-events: none;
+    padding: 10px;
   }
 `;
 
