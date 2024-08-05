@@ -1,0 +1,56 @@
+* {
+  box-sizing: border-box;
+}
+
+.input__search {
+  border-radius: 8px;
+  border: 1px solid navy;
+  vertical-align: middle;
+  margin-right: 4px;
+  font-size: 16px;
+  padding: 2px 8px;
+  width: 300px;
+}
+
+.button__search {
+  background: none;
+  border: none;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  vertical-align: middle;
+}
+
+.button__search > svg {
+  width: 100%;
+  height: 100%;
+}
+
+.list-block {
+  border: 1px solid navy;
+  width: 300px;
+  height: 140px;
+  overflow-y: scroll;
+  font-size: 16px;
+}
+
+.list .type {
+  margin: 0;
+  background-color: navy;
+  color: white;
+  padding: 5px 8px;
+}
+
+.list ul {
+  padding: 0;
+  margin: 0;
+}
+
+.list ul li {
+  list-style: none;
+  padding: 5px 8px;
+}
+
+.list ul li:hover {
+  background-color: lightblue;
+}
