@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import styled from 'styled-components';
 import GlobalStyle from './styles/globals';
+import { SearchForm, SearchBox, RecommendList } from './styles/app';
 import useDebounce from './hooks/useDebounce';
-import { dummy } from './data';
 import SearchHighlight from './components/SearchHighlight';
 import SearchButton from './components/SearchButton';
+import { dummy } from './data';
 
 interface SearchData {
   description: string;
@@ -12,9 +12,20 @@ interface SearchData {
   type: string;
 }
 
+const data: SearchData[] = [...dummy];
+const groupedData = data.reduce(
+  (acc, item) => {
+    const { type } = item;
+    if (!acc[type]) acc[type] = [];
+    acc[type].push(item);
+    return acc;
+  },
+  {} as { [type: string]: SearchData[] }
+);
+const dataTypeList = Object.keys(groupedData);
+
 const App = () => {
   const [query, setQuery] = useState('');
-
   const debouncedQuery = useDebounce(query, 200);
 
   const changeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -24,8 +35,8 @@ const App = () => {
   const selectRecommend = (event: React.MouseEvent<HTMLAnchorElement>) => {
     event.preventDefault();
 
-    const parent = (event.target as HTMLAnchorElement).closest('li');
-    setQuery(parent?.getAttribute('data-key') || '');
+    const parent = (event.target as HTMLAnchorElement).closest('dd');
+    setQuery(parent?.getAttribute('data-value') || '');
   };
 
   const printResult = () => {
@@ -40,13 +51,16 @@ const App = () => {
           <input type="search" value={query} onChange={changeInput} />
           {query && (
             <RecommendList>
-              {dummy.map((el: SearchData, idx: number) => {
-                return (
-                  <li key={idx} data-key={el.key} data-type={el.type}>
-                    <SearchHighlight content={el.description} query={debouncedQuery} clickHandler={selectRecommend} />
-                  </li>
-                );
-              })}
+              {dataTypeList.map((type: string) => (
+                <div key={type}>
+                  <dt>{type}</dt>
+                  {groupedData[type].map((el: SearchData) => (
+                    <dd key={el.key} data-value={el.key}>
+                      <SearchHighlight content={el.description} query={debouncedQuery} clickHandler={selectRecommend} />
+                    </dd>
+                  ))}
+                </div>
+              ))}
             </RecommendList>
           )}
         </SearchBox>
@@ -55,35 +69,5 @@ const App = () => {
     </>
   );
 };
-
-const SearchForm = styled.form`
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  gap: 20px;
-`;
-
-const SearchBox = styled.div`
-  width: 250px;
-
-  > input {
-    box-sizing: border-box;
-    width: 100%;
-    height: 50px;
-    padding: 0 15px 0 15px;
-  }
-`;
-
-const RecommendList = styled.ul`
-  width: 100%;
-  max-height: 200px;
-  list-style-type: none;
-  overflow-y: scroll;
-  padding: 0;
-
-  > li {
-    text-align: left;
-  }
-`;
 
 export default App;
