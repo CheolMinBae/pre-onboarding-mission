@@ -1,0 +1,47 @@
+ul {
+  width: 100%;
+  list-style-type: none;
+}
+
+li {
+  height: 20px;
+}
+
+.notAType:hover {
+  background-color: lightblue;
+  background-color: #e5e5f2;
+  color: #525252;
+  cursor: pointer;
+}
+
+input {
+  width: 100%;
+  box-sizing: border-box;
+  outline: none;
+  border-radius: 0;
+  border: solid 2px #000033;
+}
+input:focus {
+  border-color: #400080;
+}
+
+#container {
+  width: 200px;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  margin-left: -100px;
+}
+
+#listContainer {
+  border: 1.2px solid #000033;
+  height: 100px;
+  overflow: scroll;
+  margin-top: 2px;
+}
+
+.type {
+  background-color: navy;
+  color: white;
+  height: 20px;
+}
