@@ -1,3 +1,4 @@
+import "./index.css";
 import Search from './Search';
 
 function App() {
