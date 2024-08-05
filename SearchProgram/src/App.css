@@ -34,7 +34,7 @@ input:focus {
 }
 
 #listContainer {
-  border: 1px solid navy;
+  border: 1.2px solid #000033;
   height: 100px;
   overflow: scroll;
   margin-top: 2px;
@@ -43,4 +43,5 @@ input:focus {
 .type {
   background-color: navy;
   color: white;
+  height: 20px;
 }
