@@ -21,6 +21,13 @@ const App = () => {
     setQuery(event.target.value);
   };
 
+  const selectRecommend = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+
+    const parent = (event.target as HTMLAnchorElement).closest('li');
+    setQuery(parent?.getAttribute('data-key') || '');
+  };
+
   const printResult = () => {
     console.log(query);
   };
@@ -36,7 +43,7 @@ const App = () => {
               {dummy.map((el: SearchData, idx: number) => {
                 return (
                   <li key={idx} data-key={el.key} data-type={el.type}>
-                    <SearchHighlight content={el.description} query={debouncedQuery} />
+                    <SearchHighlight content={el.description} query={debouncedQuery} clickHandler={selectRecommend} />
                   </li>
                 );
               })}
@@ -76,7 +83,6 @@ const RecommendList = styled.ul`
 
   > li {
     text-align: left;
-    padding: 10px;
   }
 `;
 
