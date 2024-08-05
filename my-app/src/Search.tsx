@@ -1,8 +1,15 @@
 import { useEffect, useState } from 'react';
 import { dummy, Item } from './data';
 import { FcSearch } from 'react-icons/fc';
+import useDebounce from './hooks/useDebounce';
 
-const SearchTable = ({ results, highlight }: { results: Item[], highlight: string }) => {
+const SearchTable = ({
+  results,
+  highlight,
+}: {
+  results: Item[];
+  highlight: string;
+}) => {
   return (
     <table className="mt-2 w-full border-collapse">
       <thead>
@@ -13,26 +20,24 @@ const SearchTable = ({ results, highlight }: { results: Item[], highlight: strin
       </thead>
       <tbody>
         {results.map((item: Item) => {
-          const parse = item.description.split(new RegExp(`(${highlight})`, 'gi'));
+          const parse = item.description.split(
+            new RegExp(`(${highlight})`, 'gi')
+          );
 
           return (
-            (
-              <tr key={item.key}>
-                <td className="border p-2">
-                  {
-                    parse.map((char, index) => 
-                      char.toLowerCase() === highlight.toLowerCase() ? (
-                        <strong key={index}>{char}</strong>
-                      ) : (
-                        <>{char}</>
-                      )
-                    )
-                  }
-                </td>
-                <td className="border p-2">{item.type}</td>
-              </tr>
-            )
-          )
+            <tr key={item.key}>
+              <td className="border p-2">
+                {parse.map((char, index) =>
+                  char.toLowerCase() === highlight.toLowerCase() ? (
+                    <strong key={index}>{char}</strong>
+                  ) : (
+                    <>{char}</>
+                  )
+                )}
+              </td>
+              <td className="border p-2">{item.type}</td>
+            </tr>
+          );
         })}
       </tbody>
     </table>
@@ -42,13 +47,14 @@ const SearchTable = ({ results, highlight }: { results: Item[], highlight: strin
 export const Search = () => {
   const [inputValue, setInputValue] = useState('');
   const [results, setResults] = useState<Item[]>([]);
+  const debouncedInput = useDebounce(inputValue);
 
   useEffect(() => {
     const filterResults = dummy.filter((item) =>
-      item.key.toLowerCase().includes(inputValue.toLowerCase())
+      item.key.toLowerCase().includes(debouncedInput.toLowerCase())
     );
     setResults(filterResults);
-  }, [inputValue]);
+  }, [debouncedInput]);
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen p-4">
@@ -65,7 +71,7 @@ export const Search = () => {
             <FcSearch size="3rem" />
           </button>
         </div>
-        <SearchTable results={results} highlight={inputValue}/>
+        <SearchTable results={results} highlight={inputValue} />
       </div>
     </div>
   );
