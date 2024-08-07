@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Box</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <div class="search_container">
+        <form id="Search-form">
+            <input type="text" id="search-input" autocomplete='off'>
+            <button type="submit" id="mybtn">search!</button>
+            <div class="suggestion" id="suggestion"></div>
+        </form>
+    </div>
+    <script type="module">
+        import {dummy} from './data.js';
+        const searchInput = document.getElementById('search-input')
+        const suggestion = document.getElementById('suggestion');
+
+        searchInput.addEventListener('input', () => {
+            const query = searchInput.value.toLowerCase();
+            const filtered = dummy.filter(item => item.key.toLowerCase().includes(query));
+            
+
+            if (filtered.length > 0) {
+                suggestion.style.display = 'block';
+            } else {
+                suggestion.style.display = 'none';
+            }
+            searchInput.addEventListener('focus', () => {
+            if (searchInput.value.trim().length > 0) {
+                suggestion.style.display = 'block';
+            }
+            });
+
+            searchInput.addEventListener('blur', () => {
+                setTimeout(() => {
+                    suggestion.style.display = 'none';
+                }, 200); // Delay to allow click event to be processed
+            });
+            let currentType = '';
+            filtered.forEach(item => {
+                if (item.type !== currentType) {
+                    currentType = item.type;
+                    const header = document.createElement('div');
+                    header.classList.add('suggestion-header');
+                    header.textContent = currentType;
+                    suggestion.appendChild(header);
+                }
+                const div = document.createElement('div');
+                div.textContent = item.description;
+                div.addEventListener('click', () => {
+                    searchInput.value = item.key;
+                    suggestion.innerHTML = '';
+                });
+                suggestion.appendChild(div);
+            });
+        });
+        document.getElementById('mybtn').addEventListener('click', () => {
+            alert(`Searching for: ${searchInput.value}`);
+        });
+    </script>
+</body>
+</html>
