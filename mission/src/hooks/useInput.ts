@@ -1,4 +1,5 @@
-import { ChangeEvent, useState } from "react";
+import { debounce } from "lodash";
+import { ChangeEvent, useMemo, useState } from "react";
 
 export interface useInputProps {
   text: string;
@@ -12,8 +13,17 @@ const useInput = (): useInputProps => {
     null
   );
 
+  const debounceSearch = useMemo(
+    () =>
+      debounce((value: string) => {
+        setText(value);
+      }, 300),
+    []
+  );
+
   const handleChangeInput = (e: ChangeEvent<HTMLInputElement>) => {
     setText(e.target.value);
+    debounceSearch(e.target.value);
   };
 
   const handleChangeDescription = (description: string) => {
