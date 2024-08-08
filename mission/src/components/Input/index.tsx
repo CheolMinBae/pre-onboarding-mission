@@ -1,6 +1,5 @@
-import { ChangeEvent } from "react";
 import searchIcon from "../assets/search.svg";
-import { useInputProps } from "../hooks/useInput";
+import { useInputProps } from "../../hooks/useInput";
 
 const Input = ({ text, handleChangeInput }: useInputProps) => {
   return (

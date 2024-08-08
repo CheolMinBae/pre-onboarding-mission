@@ -1,6 +1,6 @@
 import useInput from "../hooks/useInput.ts";
-import SearchBox from "../SearchBox/index.tsx";
-import Input from "../components/index.tsx";
+import SearchBox from "../components/SearchBox/index.tsx";
+import Input from "../components/Input/index.tsx";
 
 const SearchPage = () => {
   const { text, handleChangeInput, handleChangeDescription } = useInput();
