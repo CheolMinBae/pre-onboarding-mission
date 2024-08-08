@@ -1,4 +1,4 @@
-import searchIcon from "../assets/search.svg";
+import searchIcon from "../../assets/search.svg";
 import { useInputProps } from "../../hooks/useInput";
 
 const Input = ({ text, handleChangeInput }: useInputProps) => {
