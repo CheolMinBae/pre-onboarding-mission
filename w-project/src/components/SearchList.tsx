@@ -27,6 +27,12 @@ const searchList = ({ keyWord }: Props) => {
     setData(dum);
   }, []);
 
+  const checkText = (text: string) => {
+    const key = new RegExp(keyWord, "gi");
+    text = text.replace(key, (match) => `<strong>${match}</strong>`);
+    return text;
+  };
+
   return (
     <>
       <div className="search-area">
@@ -34,7 +40,7 @@ const searchList = ({ keyWord }: Props) => {
           <div className="category" key={category}>
             <div>{category}</div>
             {data[category].map((text, index) => (
-              <div key={index}>{text.description}</div>
+              <div key={index} dangerouslySetInnerHTML={{ __html: checkText(text.description) }}></div>
             ))}
           </div>
         ))}
