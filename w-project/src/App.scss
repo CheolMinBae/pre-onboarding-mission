@@ -6,7 +6,6 @@
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   color: white;
@@ -14,8 +13,27 @@
 
 .input-area {
   width: 30%;
+  min-width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2vh;
+
+  & .input-box {
+    position: relative;
+    flex: 1;
+  }
+
   & input {
     width: 100%;
-    padding: 1vh;
+    height: 50px;
+    font-size: 20px;
   }
+}
+
+.search-icon {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
